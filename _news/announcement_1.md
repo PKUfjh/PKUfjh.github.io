@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I graduated from Peking University with a Bachelor's degree in Life Sciences, and another Bachelor's degree in Physics.
+I graduated from Peking University with a BS degree in Life Sciences, and another BS degree in Physics.
