@@ -71,12 +71,16 @@ The "box minus" operation is defined between two $$SO(3)$$ matrix.
 \end{equation}
 
 $$\textbf{Some important identities}$$ ($$\boldsymbol{v}$$ is a vector in lie algebra, $$\boldsymbol{v}^{\times}$$ is its matrix representation):
+$$
 \begin{equation}
 \label{eq:1}
-\left(\boldsymbol{v}^{\times}\right)^T=-\boldsymbol{v}^{\times},
-\left(\boldsymbol{v}^{\times}\right)^2=\boldsymbol{v} \boldsymbol{v}^T-\boldsymbol{v}^T \boldsymbol{v} \boldsymbol{I},
-(\Phi \boldsymbol{v})^{\times}=\Phi \boldsymbol{v}^{\times} \Phi^T
+\begin{aligned}
+\left(\boldsymbol{v}^{\times}\right)^T & =-\boldsymbol{v}^{\times}, \\
+\left(\boldsymbol{v}^{\times}\right)^2 & =\boldsymbol{v} \boldsymbol{v}^T-\boldsymbol{v}^T \boldsymbol{v} \boldsymbol{I}, \\
+(\Phi \boldsymbol{v})^{\times} & = \Phi \boldsymbol{v}^{\times} \Phi^T
+\end{aligned}
 \end{equation}
+$$
 Especially the third identities, which will play important roles in the derivation of the score function.
 
 With these definitions, we can define the derivative of a scalar function with argument to be $$SO(3)$$ matrix,
@@ -91,7 +95,9 @@ With these definitions, we can define the derivative of a scalar function with a
 
 We can represent the $$SO(3)$$ matrix in 3D space using axis-angle representation, in explicit terms, it can be written as:
 $$
+\begin{equation}
 \overleftrightarrow{R}_n(\theta)_{i, j}=n_i n_j+\cos \theta \cdot\left(\delta_{i, j}-n_i n_j\right)-\sin \theta \cdot \sum_c \epsilon_{i j k} n_k, \text { here } i, j, k=x, y, z
+\end{equation}
 $$
 
 Or more simply written using lie algebra matrix:
@@ -176,13 +182,17 @@ L_{t+1} = L_t + \mathbf{\beta_t} \cdot \mathbf{G}
 where $$\mathbf{\beta_t}$$ is sampled from three gaussian distribution with standard deviation  $$\sqrt{\sigma^2_t - \sigma^2_{t-1}}$$, $$\mathbf{G}$$ is the Three Lie algebra matrix.
 
 Then the reverse process of this SDE in Lie algebra space is:
+$$
 \begin{equation}
 L_t = L_{t+1} + (\sigma^2_t - \sigma^2_{t-1}) \nabla_{L^{(t)}} \log q\left(L_t \right) +  \sqrt{\sigma^2_t - \sigma^2_{t-1}} \mathbf{\epsilon_t} \cdot \mathbf{G}
 \end{equation}
+$$
 Exponentiate back to the $$SO(3)$$ matrix, we have the reverse process in $$SO(3)$$ space:
+$$
 \begin{equation}
 r^{(t-1)}=\exp \left\{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \log q\left(r^{(t)}\right)+\sqrt{\sigma_t^2-\sigma_{t-1}^2} \sum_{d=1}^3 \epsilon_d  G_d\right\} r^t,
 \end{equation}
+$$
 where $$q (r^{(t)}$$ is the probability density of matrix $$r^{(t)}$$ of the marginal distribution in the forward process. Now it is only a matter of calculating the expression $$\nabla_{r^{(t)}} \log q\left(r^{(t)}\right)$$, which is also called the score function.
 
 # Score function in $$SO(3)$$ space with trained model
@@ -193,21 +203,27 @@ At this stage, if we do not impose model information in the diffusion process, t
 Note we divide the IGSO3 distribution by the measure in $$SO(3)$$ space to get the probability density.
 
 Now we impose model information in the diffusion process. First of all, according to the denoised score matching objective, we can use the conditional score to approximate the true score function:
+$$
 \begin{equation}
 \nabla_r \log q\left(r^{(t)}\right) =\mathbb{E}_q\left[\nabla_{r^{(t)}} \log q\left(r^{(t)} \mid r^{(0)}\right) \mid r^{(t)}\right]
 \end{equation}
-In real cases we do not know the distribution of the initial matrix $r^{(0)}$ given the current observation $r^{(t)}$. But if we have a trained model such that when observing a noised rotation matrix $r^{(t)}$, the model will output a single structure $\hat{r} (t)$ as the ground truth of the denoised structure. Then we can approximate the conditional score by the model prediction:
+$$
+In real cases we do not know the distribution of the initial matrix $$r^{(0)}$$ given the current observation $$r^{(t)}$$. But if we have a trained model such that when observing a noised rotation matrix $$r^{(t)}$$, the model will output a single structure $$\hat{r} (t)$$ as the ground truth of the denoised structure. Then we can approximate the conditional score by the model prediction:
+$$
 \begin{equation}
 \begin{aligned}
 \nabla_r \log q\left(r^{(t)}\right) &  \approx \nabla_{r^{(t)}} \log q\left(r^{(t)} \mid r^{(0)}=\hat{r}^{(0)}\right) \\
 & =\nabla_{r^{(t)}} \log \mathcal{I} \mathcal{G}_{S O(3)}\left(r^{(t)} ; \hat{r}^{(0)}, \sigma_t^2\right),
 \end{aligned}
 \end{equation}
+$$
 
 Then the score function in $$SO(3)$$ space can be written as:
+$$
 \begin{equation}
 \nabla_r \log \mathcal{I} \mathcal{G}_{S O(3)}\left(r ; \hat{r}, \sigma_t^2\right)=\left.\nabla_r \omega\left(\hat{r}^{\top} r\right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|_{\omega=\omega\left(\hat{r}^{\top} r\right)}
 \end{equation}
+$$
 Note we divide the IGSO3 distribution by the measure in $$SO(3)$$ space.
 
 Now the crucial thing to compute is the derivative of the rotation angle with respect to the rotation matrix,namely
@@ -233,14 +249,17 @@ Now let us take the derivative, I only show the first dimension of the derivativ
 Note that since $$SO(3)$$ matrix acts on column vector, when we do matrix composition we will always \textbf{apply the new matrix on the left of the old matrix}. This is why in eq (\ref{eq:0}) we apply the lie algebra exponential on the left of the original $$SO(3)$$ matrix.
 
 We proceed with the defintion of "box plus",
+$$
 \begin{equation}
 \begin{aligned}
     \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon} & = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} \\
 & = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } \hat{r} \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon}
 \end{aligned}
 \end{equation}
+$$
 
 Now using the third identity in eq(\ref{eq:1}), we have 
+$$
 \begin{equation}
 \begin{aligned}
     \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon} & = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} \\
@@ -248,14 +267,15 @@ Now using the third identity in eq(\ref{eq:1}), we have
 & = \frac{\omega \left(  (e^{ \hat{r}^{\top}  \mathbf{e}_1 \epsilon } \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon}
 \end{aligned}
 \end{equation}
+$$
 
 Now the crucial point is to compute the rotation angle from the composition of two rotation matrix.
 
-\textcolor{blue}{(Note that in general, we have the \textbf{Baker–Campbell–Hausdorff formula}:
+$$\textcolor{blue}{(Note that in general, we have the \textbf{Baker–Campbell–Hausdorff formula}:
 \begin{equation}
 Z= \log[e^X e^Y] = X+Y+\frac{1}{2}[X, Y]+\frac{1}{12}[X,[X, Y]]-\frac{1}{12}[Y,[X, Y]]+\cdots
 \end{equation}
-But since we are dealing with $$SO(3)$$ matrix, we have simpler formula, which is called "Rodrigues rotation formula."})
+But since we are dealing with $$SO(3)$$ matrix, we have simpler formula, which is called "Rodrigues rotation formula."})$$
 
 The Rodrigues vector associated with a rotation matrix can be expressed as:
 \begin{equation}
@@ -293,20 +313,26 @@ So we have the expression for $$\delta \alpha$$,
 \end{equation}
 
 So we finally get the derivative,
+$$
 \begin{equation}
 \begin{aligned}
     \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  & = \frac{\hat{r}^{\top}_{xx} A_x + \hat{r}^{\top}_{yx} A_y +  \hat{r}^{\top}_{zx} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }} \\
 & = \frac{\hat{r}_{xx} A_x + \hat{r}_{xy} A_y +  \hat{r}_{xz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
 \end{aligned}
 \end{equation}
+$$
 
 Similarly we get the derivative in other two directions,
+$$
 \begin{equation}
     \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_2 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  = \frac{\hat{r}_{yx} A_x + \hat{r}_{yy} A_y +  \hat{r}_{yz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
 \end{equation}
+$$
+$$
 \begin{equation}
     \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_3 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  = \frac{\hat{r}_{zx} A_x + \hat{r}_{zy} A_y +  \hat{r}_{zz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
 \end{equation}
+$$
 Write in a compact form, using the identity
 \begin{equation}
     \hat{r} v = \log (\hat{r} e^v \hat{r}^{\top})
