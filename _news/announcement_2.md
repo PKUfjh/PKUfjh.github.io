@@ -1,7 +1,7 @@
 ---
 layout: post
-title: A long announcement with details
-date: 2020-11-07 16:11:00-0400
+title: I become a PhD student at Peking University in the Physics Department.
+date: 2020-09-01 0:0:00
 inline: false
 related_posts: false
 ---
