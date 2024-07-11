@@ -11,12 +11,12 @@ citation: true
 This theme supports rendering beautiful math in inline and display modes using [MathJax 3](https://www.mathjax.org/) engine. 
 
 # Why bother diffusion in SO(3) space?
-One typical way to represent the structure of proteins is to use the position of alpha carbon and the rotation matrix of each residue. So the diffusion process on the space of alpha carbon is simple Euclidean space, but the diffusion process on the rotation matrix ($SO(3)$ space) is non-Euclidean. This note aims to provide a rigorous formulation of diffusion model on $SO(3)$ space.
+One typical way to represent the structure of proteins is to use the position of alpha carbon and the rotation matrix of each residue. So the diffusion process on the space of alpha carbon is simple Euclidean space, but the diffusion process on the rotation matrix ($$SO(3)$$ space) is non-Euclidean. This note aims to provide a rigorous formulation of diffusion model on $$SO(3)$$ space.
 
 # Some definitions and identities
 In this note, we do not always distinguish "group" and "representation of group", just like physicists.
 
-With notation from the article, we define the basis of the lie algebra of $SO(3)$ group and their matrix representation as follows:
+With notation from the article, we define the basis of the lie algebra of $$SO(3)$$ group and their matrix representation as follows:
 \begin{equation}
 \begin{array}{ll}
 \mathbf{e}_1=\left[\begin{array}{l}
@@ -53,26 +53,22 @@ With notation from the article, we define the basis of the lie algebra of $SO(3)
 \end{array}
 \end{equation}
 
-Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of $SO(3)$ matrix.
+Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of $$SO(3)$$ matrix.
 
-The "box plus" operation is defined between a $SO(3)$ matrix $\Phi$ and a lie algebra vector $\varphi$
+The "box plus" operation is defined between a $$SO(3)$$ matrix $$\Phi$$ and a lie algebra vector $$\varphi$$
 \begin{equation}
 \label{eq:0}
-\begin{gathered}
-\boxplus: S O(3) \times \mathbb{R}^3 \rightarrow S O(3), \\
-\Phi, \boldsymbol{\varphi} \mapsto \exp (\boldsymbol{\varphi^{\times}}) \circ \Phi,
-\end{gathered}
+\boxplus: SO(3) \times \mathbb{R}^3 \rightarrow SO(3), \quad
+(\Phi, \boldsymbol{\varphi}) \mapsto \exp (\boldsymbol{\varphi}^{\times}) \circ \Phi
 \end{equation}
 
-The "box minus" operation is defined between two $SO(3)$ matrix.
+The "box minus" operation is defined between two $$SO(3)$$ matrix.
 \begin{equation}
-\begin{aligned}
-\boxminus: S O(3) \times S O(3) \rightarrow \mathbb{R}^3, \\
-\Phi_1, \Phi_2 \mapsto \log \left(\Phi_1 \circ \Phi_2^{-1}\right) .
-\end{aligned}
+\boxminus: SO(3) \times SO(3) \rightarrow \mathbb{R}^3, \quad
+(\Phi_1, \Phi_2) \mapsto \log \left(\Phi_1 \circ \Phi_2^{-1}\right)
 \end{equation}
 
-\textbf{Some important identities} ($\boldsymbol{v}$ is a vector in lie algebra, $\boldsymbol{v}^{\times}$ is its matrix representation):
+\textbf{Some important identities} ($$\boldsymbol{v}$$ is a vector in lie algebra, $$\boldsymbol{v}^{\times}$$ is its matrix representation):
 \begin{equation}
 \label{eq:1}
 \begin{aligned}
@@ -83,7 +79,7 @@ The "box minus" operation is defined between two $SO(3)$ matrix.
 \end{equation}
 Especially the third identities, which will play important roles in the derivation of the score function.
 
-With these definitions, we can define the derivative of a scalar function with argument to be $SO(3)$ matrix,
+With these definitions, we can define the derivative of a scalar function with argument to be $$SO(3)$$ matrix,
 \begin{equation}
 \label{eq:2}
 \frac{\partial f_3}{\partial \Phi}=\lim _{\epsilon \rightarrow 0}\left[\begin{array}{l}
@@ -93,7 +89,7 @@ With these definitions, we can define the derivative of a scalar function with a
 \end{array}\right]
 \end{equation}
 
-We can represent the $SO(3)$ matrix in 3D space using axis-angle representation, in explicit terms, it can be written as:
+We can represent the $$SO(3)$$ matrix in 3D space using axis-angle representation, in explicit terms, it can be written as:
 \begin{equation}
 \overleftrightarrow{R}_n(\theta)_{i, j}=n_i n_j+\cos \theta \cdot\left(\delta_{i, j}-n_i n_j\right)-\sin \theta \cdot \sum_c \epsilon_{i j k} n_k, \text { here } i, j, k=x, y, z
 \end{equation}
@@ -101,7 +97,7 @@ Or more simply written using lie algebra matrix:
 \begin{equation}
 \overleftrightarrow{R}_n(\theta)=\exp ( \theta \overleftrightarrow{G} \bullet n)
 \end{equation}
-where $\theta$ is in the range $[0, \pi]$, and $n$ represents the rotation axis.
+where $$\theta$$ is in the range $$[0, \pi]$$, and $$n$$ represents the rotation axis.
 
 
 
