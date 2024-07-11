@@ -17,7 +17,7 @@ One typical way to represent the structure of proteins is to use the position of
 In this note, we do not always distinguish "group" and "representation of group", just like physicists.
 
 With notation from the article, we define the basis of the lie algebra of $$SO(3)$$ group and their matrix representation as follows:
-\begin{equation}
+\begin{aligned}
 \begin{array}{ll}
 \mathbf{e}_1=\left[\begin{array}{l}
 1 \\
@@ -51,7 +51,7 @@ With notation from the article, we define the basis of the lie algebra of $$SO(3
 0 & 0 & 0
 \end{array}\right]
 \end{array}
-\end{equation}
+\end{aligned}
 
 Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of $$SO(3)$$ matrix.
 
