@@ -246,7 +246,7 @@ Now let us take the derivative, I only show the first dimension of the derivativ
     \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}
 \end{equation}
 
-Note that since $$SO(3)$$ matrix acts on column vector, when we do matrix composition we will always \textbf{apply the new matrix on the left of the old matrix}. This is why in eq (\ref{eq:0}) we apply the lie algebra exponential on the left of the original $$SO(3)$$ matrix.
+Note that since $$SO(3)$$ matrix acts on column vector, when we do matrix composition we will always $$\textbf{apply the new matrix on the left of the old matrix}$$. This is why in eq (\ref{eq:0}) we apply the lie algebra exponential on the left of the original $$SO(3)$$ matrix.
 
 We proceed with the defintion of "box plus",
 $$
@@ -271,11 +271,13 @@ $$
 
 Now the crucial point is to compute the rotation angle from the composition of two rotation matrix.
 
-$$\textcolor{blue}{(Note that in general, we have the \textbf{Baker–Campbell–Hausdorff formula}:
+Note that in general, we have the $$\textbf{Baker–Campbell–Hausdorff formula}$$:
+$$
 \begin{equation}
 Z= \log[e^X e^Y] = X+Y+\frac{1}{2}[X, Y]+\frac{1}{12}[X,[X, Y]]-\frac{1}{12}[Y,[X, Y]]+\cdots
 \end{equation}
-But since we are dealing with $$SO(3)$$ matrix, we have simpler formula, which is called "Rodrigues rotation formula."})$$
+$$
+But since we are dealing with $$SO(3)$$ matrix, we have simpler formula, which is called "Rodrigues rotation formula."
 
 The Rodrigues vector associated with a rotation matrix can be expressed as:
 \begin{equation}
