@@ -145,6 +145,8 @@ f(\omega, \sigma)=\frac{1-\cos \omega}{\pi} \sum_{l=0}^{\infty}(2 l+1) e^{-l(l+1
 \end{equation}
 The right figure is the ten steps random walk, whose angle distribution corresponds to the IGSO3 distribution with standard deviation $$\sigma = \sqrt{0.2^2 * 10} = 0.6325$$. 
 
+![Random walk](../assets/img/output_1.png)
+
 Other choice of steps also give us consistency of the angle distribution with the IGSO(3) distribution, and its standard deviation is found to be the square root of the sum of the gaussian distribution,
 \begin{equation}
     \sigma  = \sqrt{ \sum_i \sigma_i^2}
