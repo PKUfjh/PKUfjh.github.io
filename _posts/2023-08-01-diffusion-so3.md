@@ -18,6 +18,7 @@ In this note, we do not always distinguish "group" and "representation of group"
 
 With notation from the article, we define the basis of the lie algebra of $$SO(3)$$ group and their matrix representation as follows:
 $$
+\begin{equation}
 \begin{array}{ll}
 \mathbf{e}_1=\left[\begin{array}{l}
 1 \\
@@ -51,6 +52,7 @@ $$
 0 & 0 & 0
 \end{array}\right]
 \end{array}
+\end{equation}
 $$
 
 Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of $$SO(3)$$ matrix.
@@ -110,9 +112,9 @@ where $$\sum_i a_i^2=a_0^2+\boldsymbol{a}^2=1$$.
 So the manifold of $$SU(2)$$ group is a 3-sphere $$S^3$$ in 4D Euclidean space.
 
 Another way to write the quaternion representation is to use axis and angle by $$U = \exp \left(-\dot{\mathbb{I}} \frac{\theta}{2} \boldsymbol{n} \bullet \boldsymbol{\sigma}\right) = \left(\cos \frac{\theta}{2}, \sin \frac{\theta}{2} \cdot \boldsymbol{n}\right)$$. In this way of writing the $$SO(3)$$ matrix can be represented as the adjoint representation of $$SU(2)$$ group:
-\begin{equation}
-e^{-\mathrm{i} \frac{\theta}{2} \boldsymbol{n} \bullet \sigma} \cdot \sigma_a \cdot e^{\mathrm{i} \frac{\theta}{2} n \bullet \sigma}=\sum_b \sigma_b \cdot\left[\overleftrightarrow{R}_{\boldsymbol{n}}(\theta)\right]_{b a}
-\end{equation}
+$$
+e^{-\mathrm{i} \frac{\theta}{2} \boldsymbol{n} \bullet \sigma} \cdot \sigma_a \cdot e^{\mathrm{i} \frac{\theta}{2} n \bullet \sigma}=\sum_b \sigma_b \cdot\left[\overleftrightarrow{R}_{\boldsymbol{n}}(\theta)\right]_{ba}
+$$
 Notice that $$a_i$$ and $$-a_i$$ correspond to the same $$SO(3)$$ matrix, so we have group structure isophism: $$\mathrm{SO}(3) \simeq \mathrm{SU}(2) / \mathbb{Z}_2$$.
 
 Since the manifold of $$SU(2)$$ is $$S^3$$, the Haar measure of $$SU(2)$$ can be represented as: 
@@ -129,7 +131,7 @@ From another point of view, the prior distribution in the rotation angle space i
 
 Now we consider the noise adding process in $$SO(3)$$ space. Like the random walk in 3D space, we apply small random rotation matrix on an initial matrix iteratively. We generate three small angles from a gaussain distribution, and compose them with Lie algebra matrix to get the rotation matrix. To write it formally,
 \begin{equation}
-r^{(t+1)}=\exp \left\{\sum_{d=1}^3 \epsilon_d G_d\right\} r^t
+r^{(t+1)}=\exp \left\lbrace\sum_{d=1}^3 \epsilon_d G_d\right\rbrace r^t
 \end{equation}
 Specifically, we set the standard deviation of the gaussian noise to be 0.2. After a certain number of steps, we can reach the final matrix of this process, we compute the rotation angle of this final matrix relative to the initial matrix, we can get the overall distribution of the rotation angle, as in the following figure, the left figure is the single step random walk, whose angle distribution corresponds to the so called IGSO3 distribution with the same standard deviation $$\sigma = 0.2$$.
 \begin{equation}
@@ -142,6 +144,46 @@ Other choice of steps also give us consistency of the angle distribution with th
     \sigma  = \sqrt{ \sum_i \sigma_i^2}
 \end{equation}
 Note that in the limit of $$\sigma \rightarrow \infty$$, the function $$f(\omega, \sigma)$$ will approach exactly $$\frac{1-\cos \omega}{\pi}$$, the prior distribution.
+
+# Forward process in SO(3) space
+Since the marginal distribution of the random walk in $$SO(3)$$ space is IGSO(3) distribution, we can simulate the forward process in $$SO(3)$$ space by directly sampling angles from IGSO(3) distribution with a certain value of $$\sigma$$, then sample an axis from an uniform distribution, then apply this random matrix upon the initial matrix. To write it formally:
+\begin{equation}
+r^t=e^{\theta_t \textbf{n}} r^0
+\end{equation}
+where $$\theta_t$$ is sampled from the IGSO(3) distribution with standard deviation $$\sigma_t$$, and  $$\textbf{n}$$ is a 3D vector sampled from the uniform distribution.
+
+With the addition theorem for the noise adding process, the matrices corresponding the neighboring distribution can be related by:
+\begin{equation}
+r^t=e^{\beta_t \textbf{n}} r^{t-1}
+\end{equation}
+where $$\beta_t$$ is sampled from the IGSO(3) distribution with standard deviation $$\sqrt{\sigma^2_t - \sigma^2_{t-1}}$$, and $$\textbf{n}$$ is a 3D vector sampled from the uniform distribution.
+
+# Backward process in SO(3) space
+A remarkable result from Anderson states that, the reverse SDE equation for a forward SDE process:
+\begin{equation}
+\mathrm{d} \mathbf{x}=\mathbf{f}(\mathbf{x}, t) \mathrm{d} t+g(t) \mathrm{d} \mathbf{w}
+\end{equation}
+can be modeled as:
+\begin{equation}
+\mathrm{d} \mathbf{x}=\left[\mathbf{f}(\mathbf{x}, t)-g(t)^2 \nabla_{\mathbf{x}} \log p_t(\mathbf{x})\right] \mathrm{d} t+g(t) \mathrm{d} \overline{\mathbf{w}}
+\end{equation}
+Note that this formulation is in Euclidean space, in $$SO(3)$$ case, we have to use the formulation in Lie algebra space, then exponentiate back to $$SO(3)$$ space.
+
+To write it more explicitly, we can write the random walk in Lie algebra space as:
+\begin{equation}
+L_{t+1} = L_t + \mathbf{\beta_t} \cdot \mathbf{G}
+\end{equation}
+where $$\mathbf{\beta_t}$$ is sampled from three gaussian distribution with standard deviation  $$\sqrt{\sigma^2_t - \sigma^2_{t-1}}$$, $$\mathbf{G}$$ is the Three Lie algebra matrix.
+
+Then the reverse process of this SDE in Lie algebra space is:
+\begin{equation}
+L_t = L_{t+1} + (\sigma^2_t - \sigma^2_{t-1}) \nabla_{L^{(t)}} \log q\left(L_t \right) +  \sqrt{\sigma^2_t - \sigma^2_{t-1}} \mathbf{\epsilon_t} \cdot \mathbf{G}
+\end{equation}
+Exponentiate back to the $$SO(3)$$ matrix, we have the reverse process in $$SO(3)$$ space:
+\begin{equation}
+r^{(t-1)}=\exp \left\{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \log q\left(r^{(t)}\right)+\sqrt{\sigma_t^2-\sigma_{t-1}^2} \sum_{d=1}^3 \epsilon_d  G_d\right\} r^t,
+\end{equation}
+where $$q (r^{(t)}$$ is the probability density of matrix $$r^{(t)}$$ of the marginal distribution in the forward process. Now it is only a matter of calculating the expression $$\nabla_{r^{(t)}} \log q\left(r^{(t)}\right)$$, which is also called the score function.
 
 
 
