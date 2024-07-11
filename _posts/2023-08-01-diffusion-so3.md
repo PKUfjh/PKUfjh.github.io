@@ -185,6 +185,138 @@ r^{(t-1)}=\exp \left\{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \l
 \end{equation}
 where $$q (r^{(t)}$$ is the probability density of matrix $$r^{(t)}$$ of the marginal distribution in the forward process. Now it is only a matter of calculating the expression $$\nabla_{r^{(t)}} \log q\left(r^{(t)}\right)$$, which is also called the score function.
 
+# Score function in $$SO(3)$$ space with trained model
+At this stage, if we do not impose model information in the diffusion process, the marginal distribution of $$q(r^{(t)})$$ is just the IGSO(3) distribution as a function of the rotation angle,  then the score function is the derivative of the function w.r.t the three Lie algebra basis matrices, namely:
+\begin{equation}
+\nabla_r \log q\left(r^{(t)}\right) =\left.\nabla_r \omega\left(  \bar{r}^{\top} r^{(t)} \right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|_{\omega=\omega\left(\bar{r}^{\top} r\right)}
+\end{equation}
+Note we divide the IGSO3 distribution by the measure in $$SO(3)$$ space to get the probability density.
+
+Now we impose model information in the diffusion process. First of all, according to the denoised score matching objective, we can use the conditional score to approximate the true score function:
+\begin{equation}
+\nabla_r \log q\left(r^{(t)}\right) =\mathbb{E}_q\left[\nabla_{r^{(t)}} \log q\left(r^{(t)} \mid r^{(0)}\right) \mid r^{(t)}\right]
+\end{equation}
+In real cases we do not know the distribution of the initial matrix $r^{(0)}$ given the current observation $r^{(t)}$. But if we have a trained model such that when observing a noised rotation matrix $r^{(t)}$, the model will output a single structure $\hat{r} (t)$ as the ground truth of the denoised structure. Then we can approximate the conditional score by the model prediction:
+\begin{equation}
+\begin{aligned}
+\nabla_r \log q\left(r^{(t)}\right) &  \approx \nabla_{r^{(t)}} \log q\left(r^{(t)} \mid r^{(0)}=\hat{r}^{(0)}\right) \\
+& =\nabla_{r^{(t)}} \log \mathcal{I} \mathcal{G}_{S O(3)}\left(r^{(t)} ; \hat{r}^{(0)}, \sigma_t^2\right),
+\end{aligned}
+\end{equation}
+
+Then the score function in $$SO(3)$$ space can be written as:
+\begin{equation}
+\nabla_r \log \mathcal{I} \mathcal{G}_{S O(3)}\left(r ; \hat{r}, \sigma_t^2\right)=\left.\nabla_r \omega\left(\hat{r}^{\top} r\right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|_{\omega=\omega\left(\hat{r}^{\top} r\right)}
+\end{equation}
+Note we divide the IGSO3 distribution by the measure in $$SO(3)$$ space.
+
+Now the crucial thing to compute is the derivative of the rotation angle with respect to the rotation matrix,namely
+\begin{equation}
+    \nabla_r \omega\left(\hat{r}^{\top} r\right)
+\end{equation}
+This is exactly the kind of derivatives defined in eq(\ref{eq:2}), the derivative of a scalar function with respect to a $$SO(3)$$ matrix.
+
+Some important $$\textbf{facts}$$ before taking the derivatives is that, when doing matrix multiplication:
+
+1. $$SO(3)$$ matrix do not generally commute (unless they have the same rotation axis).
+
+2. Infinitesimal rotation matrix commute to the first order of rotation angle. 
+
+3. A $$SO(3)$$ matrix and an infinitesimal rotation matrix do not generally commute (unless they have the same rotation axis).
+
+Now let us take the derivative, I only show the first dimension of the derivative.
+
+\begin{equation}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}
+\end{equation}
+
+Note that since $$SO(3)$$ matrix acts on column vector, when we do matrix composition we will always \textbf{apply the new matrix on the left of the old matrix}. This is why in eq (\ref{eq:0}) we apply the lie algebra exponential on the left of the original $$SO(3)$$ matrix.
+
+We proceed with the defintion of "box plus",
+\begin{equation}
+\begin{aligned}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon} & = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} \\
+& = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } \hat{r} \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon}
+\end{aligned}
+\end{equation}
+
+Now using the third identity in eq(\ref{eq:1}), we have 
+\begin{equation}
+\begin{aligned}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon} & = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} \\
+& = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } \hat{r} \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} \\
+& = \frac{\omega \left(  (e^{ \hat{r}^{\top}  \mathbf{e}_1 \epsilon } \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon}
+\end{aligned}
+\end{equation}
+
+Now the crucial point is to compute the rotation angle from the composition of two rotation matrix.
+
+\textcolor{blue}{(Note that in general, we have the \textbf{Baker–Campbell–Hausdorff formula}:
+\begin{equation}
+Z= \log[e^X e^Y] = X+Y+\frac{1}{2}[X, Y]+\frac{1}{12}[X,[X, Y]]-\frac{1}{12}[Y,[X, Y]]+\cdots
+\end{equation}
+But since we are dealing with $$SO(3)$$ matrix, we have simpler formula, which is called "Rodrigues rotation formula."})
+
+The Rodrigues vector associated with a rotation matrix can be expressed as:
+\begin{equation}
+\mathbf{g}=\hat{\mathbf{e}} \tan \frac{\theta}{2}
+\end{equation}
+where $$\hat{\mathbf{e}}$$ is the rotation axis unit vector, $$\theta$$ is the rotation angle.
+
+When we combine two rotation matrix, we can get the Rodrigues rotation formula:
+\begin{equation}
+(\mathbf{g}, \mathbf{f})=\frac{\mathbf{g}+\mathbf{f}-\mathbf{f} \times \mathbf{g}}{1-\mathbf{g} \cdot \mathbf{f}}
+\end{equation}
+The rotation angle composition is expressed as follows:
+\begin{equation}
+\cos \frac{\gamma}{2}=\cos \frac{\beta}{2} \cos \frac{\alpha}{2}-\sin \frac{\beta}{2} \sin \frac{\alpha}{2} \mathbf{B} \cdot \mathbf{A},
+\end{equation}
+
+Now we assume that the Rodrigues vector associated with rotation matrix $$\hat{r}^{\top} r$$ is $$\hat{A} \tan \frac{\alpha}{2}$$, the Rodrigues vector associated with rotation matrix $$e^{ \hat{r}^{\top}  \mathbf{e}_1 \epsilon }$$ is $$\hat{r}^{\top}  \mathbf{e}_1 \tan \frac{\epsilon}{2}$$.
+
+We express the rotation angle $$\omega \left(  (e^{ \hat{r}^{\top}  \mathbf{e}_1 \epsilon } \hat{r}^{\top} r ) \right)$$ by $$\gamma$$. We then have the equation:
+\begin{equation}
+\cos \frac{\gamma}{2}=\cos \frac{\epsilon}{2} \cos \frac{\alpha}{2}-\sin \frac{\epsilon}{2} \sin \frac{\alpha}{2} \hat{r}^{\top}  \mathbf{e}_1 \cdot \mathbf{A},
+\end{equation}
+
+Since $$\epsilon$$ is a small number, we taylor expand the equation:
+\begin{equation}
+\cos \frac{\gamma}{2}=  \cos \frac{\alpha}{2}-  \frac{\epsilon}{2} \sin \frac{\alpha}{2} \hat{r}^{\top}  \mathbf{e}_1 \cdot \mathbf{A},
+\end{equation}
+We express $$\gamma$$ to be the perturbation of $$\alpha$$, $$\gamma = \alpha + \delta \alpha$$, then taylor expand $$\cos \frac{\alpha}{2}$$,
+\begin{equation}
+\cos \frac{\alpha + \delta \alpha}{2} -  \cos \frac{\alpha}{2} =  - \sin \frac{\alpha}{2} \frac{\delta \alpha}{2} = -\frac{\epsilon}{2} \sin \frac{\alpha}{2} \hat{r}^{\top}  \mathbf{e}_1 \cdot \mathbf{A},
+\end{equation}
+So we have the expression for $$\delta \alpha$$,
+\begin{equation}
+    \delta \alpha = \epsilon \hat{r}^{\top}  \mathbf{e}_1 \cdot \mathbf{A}
+\end{equation}
+
+So we finally get the derivative,
+\begin{equation}
+\begin{aligned}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  & = \frac{\hat{r}^{\top}_{xx} A_x + \hat{r}^{\top}_{yx} A_y +  \hat{r}^{\top}_{zx} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }} \\
+& = \frac{\hat{r}_{xx} A_x + \hat{r}_{xy} A_y +  \hat{r}_{xz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
+\end{aligned}
+\end{equation}
+
+Similarly we get the derivative in other two directions,
+\begin{equation}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_2 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  = \frac{\hat{r}_{yx} A_x + \hat{r}_{yy} A_y +  \hat{r}_{yz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
+\end{equation}
+\begin{equation}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_3 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  = \frac{\hat{r}_{zx} A_x + \hat{r}_{zy} A_y +  \hat{r}_{zz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
+\end{equation}
+Write in a compact form, using the identity
+\begin{equation}
+    \hat{r} v = \log (\hat{r} e^v \hat{r}^{\top})
+\end{equation}
+\begin{equation}
+    \nabla_r \omega\left(\hat{r}^{\top} r\right) = \frac{\hat{r} A}{\omega(\hat{r}^{\top} r)} = \frac{\hat{r} \log(\hat{r}^{\top} r)}{\omega(\hat{r}^{\top} r)} = \frac{ \log(r \hat{r}^{\top})}{\omega(\hat{r}^{\top} r)} = \frac{r \log(\hat{r}^{\top} r)}{\omega(\hat{r}^{\top} r)} 
+\end{equation}
+Note that the result is in the lie algebra space, which in $$\mathbb{R}^3$$.
+
+To use this score correctly, we need to first transform the vector into matrix representation. Then exponentiate it.
 
 
 Note that MathJax 3 is [a major re-write of MathJax](https://docs.mathjax.org/en/latest/upgrading/whats-new-3.0.html) that brought a significant improvement to the loading and rendering speed, which is now [on par with KaTeX](http://www.intmath.com/cg5/katex-mathjax-comparison.php).
