@@ -103,7 +103,7 @@ In this transformation, any choice of the function $$W$$ is permissible. Specifi
 
 Now, the question arises: what form of the $$W$$ function achieves the optimal transformation? More precisely, what choice allows us to achieve the best convergence when performing molecular dynamics sampling using this transformation? To address this issue, the Bennett Acceptance Ratio (BAR) method was developed.
 
-BAR, which stands for Bennett Acceptance Ratio, is a method proposed by Bennett in 1976 for calculating free energy. The core of this method lies in selecting the form of the $$W$$ function. For a detailed derivation, see [Bennet 1976](http://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/NormConstants/FreeEnergy/BennettJCompPhys1976.pdf). Below, we present the result directly. Suppose we use molecular dynamics simulations to sample the system in state A with a sample size of $$N_A$$ and the system in state B with a sample size of $$N_B$$. The optimal choice of the $$W$$ function to minimize the variance of the partition function ratio in this sampling is:
+BAR, which stands for Bennett Acceptance Ratio, is a method proposed by Bennett in 1976 for calculating free energy. The core of this method lies in selecting the form of the $$W$$ function. For a detailed derivation, see [Bennet 1976](https://dasher.wustl.edu/chem478/reading/jcompphys-22-245-76.pdf). Below, we present the result directly. Suppose we use molecular dynamics simulations to sample the system in state A with a sample size of $$N_A$$ and the system in state B with a sample size of $$N_B$$. The optimal choice of the $$W$$ function to minimize the variance of the partition function ratio in this sampling is:
 
 $$W = \frac{1}{\frac{Z_B}{N_B} e^{-U_A}+\frac{Z_A}{N_A} e^{-U_B}} $$
 
