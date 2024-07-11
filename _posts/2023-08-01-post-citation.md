@@ -17,7 +17,7 @@ One typical way to represent the structure of proteins is to use the position of
 In this note, we do not always distinguish "group" and "representation of group", just like physicists.
 
 With notation from the article, we define the basis of the lie algebra of $$SO(3)$$ group and their matrix representation as follows:
-\begin{aligned}
+$$
 \begin{array}{ll}
 \mathbf{e}_1=\left[\begin{array}{l}
 1 \\
@@ -51,7 +51,7 @@ With notation from the article, we define the basis of the lie algebra of $$SO(3
 0 & 0 & 0
 \end{array}\right]
 \end{array}
-\end{aligned}
+$$
 
 Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of $$SO(3)$$ matrix.
 
@@ -68,14 +68,12 @@ The "box minus" operation is defined between two $$SO(3)$$ matrix.
 (\Phi_1, \Phi_2) \mapsto \log \left(\Phi_1 \circ \Phi_2^{-1}\right)
 \end{equation}
 
-\textbf{Some important identities} ($$\boldsymbol{v}$$ is a vector in lie algebra, $$\boldsymbol{v}^{\times}$$ is its matrix representation):
+$$\textbf{Some important identities}$$ ($$\boldsymbol{v}$$ is a vector in lie algebra, $$\boldsymbol{v}^{\times}$$ is its matrix representation):
 \begin{equation}
 \label{eq:1}
-\begin{aligned}
-\left(\boldsymbol{v}^{\times}\right)^T & =-\boldsymbol{v}^{\times}, \\
-\left(\boldsymbol{v}^{\times}\right)^2 & =\boldsymbol{v} \boldsymbol{v}^T-\boldsymbol{v}^T \boldsymbol{v} \boldsymbol{I}, \\
-(\Phi \boldsymbol{v})^{\times} & = \Phi \boldsymbol{v}^{\times} \Phi^T
-\end{aligned}
+\left(\boldsymbol{v}^{\times}\right)^T=-\boldsymbol{v}^{\times},
+\left(\boldsymbol{v}^{\times}\right)^2=\boldsymbol{v} \boldsymbol{v}^T-\boldsymbol{v}^T \boldsymbol{v} \boldsymbol{I},
+(\Phi \boldsymbol{v})^{\times}=\Phi \boldsymbol{v}^{\times} \Phi^T
 \end{equation}
 Especially the third identities, which will play important roles in the derivation of the score function.
 
@@ -93,6 +91,7 @@ We can represent the $$SO(3)$$ matrix in 3D space using axis-angle representatio
 \begin{equation}
 \overleftrightarrow{R}_n(\theta)_{i, j}=n_i n_j+\cos \theta \cdot\left(\delta_{i, j}-n_i n_j\right)-\sin \theta \cdot \sum_c \epsilon_{i j k} n_k, \text { here } i, j, k=x, y, z
 \end{equation}
+
 Or more simply written using lie algebra matrix:
 \begin{equation}
 \overleftrightarrow{R}_n(\theta)=\exp ( \theta \overleftrightarrow{G} \bullet n)
