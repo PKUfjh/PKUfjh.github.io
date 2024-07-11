@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I joined DP Technology as a Research Intern! :smile:
+I joined [DP Technology](https://www.dp.tech/en) as a Research Intern! :smile:
