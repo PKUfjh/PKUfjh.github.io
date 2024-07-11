@@ -154,7 +154,7 @@ The right figure is the ten steps random walk, whose angle distribution correspo
     </div>
 </div>
 <div class="caption">
-    A simple, elegant caption looks good between image rows, after each row, or doesn't have to be there at all.
+    Rotation angle histogram during random walk.
 </div>
 
 Other choice of steps also give us consistency of the angle distribution with the IGSO(3) distribution, and its standard deviation is found to be the square root of the sum of the gaussian distribution,
