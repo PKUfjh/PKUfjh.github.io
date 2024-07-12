@@ -9,6 +9,7 @@ categories: sample-posts
 # Fundamental Theory of Free Energy
 
 ## What is Free Energy
+
 Thermodynamic perspective (at constant temperature and volume):
 
 $$F = U - TS$$
@@ -24,6 +25,7 @@ $$
 where $$\beta = \frac{1}{k_B T}$$, $$Z$$ is the partition function of the system. From the statistical mechanics definition of free energy $$F$$, it is evident that the free energy of the system is entirely determined by the magnitude and distribution of energy $$E$$ in the coordinate space. To reduce the free energy, the system will tend to adopt states with lower energy $$E$$. Moreover, due to the presence of the integral sign, the system will tend to form states with a higher number of microstates at the same energy level, which corresponds to entropy in thermodynamics.
 
 ## Calculation of Free Energy
+
 From the aforementioned definitions, a direct observation is that the free energy $$F$$ of a system depends on the definition of internal energy $$U$$. Since the definition of energy is relative, the absolute value of the system's free energy $$F$$ is also meaningless. Typically, we are almost always concerned with the change in free energy between two states of the system, namely:
 
 $$
@@ -52,7 +54,9 @@ If we know the form of the energy function $$U(r)$$ for the system in states A a
 Next, we will look at two main approaches to free energy calculation: equilibrium methods and non-equilibrium methods.
 
 ## Equilibrium Free Energy Calculation Methods
+
 ### Free Energy Perturbation (FEP)
+
 To write the change in the system's free energy as an ensemble average of some physical quantity, we note that the partition function part of the free energy change can be written as:
 
 $$
@@ -132,6 +136,7 @@ $$
 where $$\hat{z_i}$$ is our current estimate of the partition functions based on the samples. This is still a self-consistent iterative calculation formula.
 
 ### Hamiltonian Thermodynamic Integration
+
 We have introduced two common free energy calculation methods, and we can see that the MBAR method is an extension of the FEP method. Next, let us consider free energy calculation from a more general perspective.
 
 The two methods introduced earlier, FEP and MBAR, both require sampling multiple states of a system and calculating the potential energy functions. During this process, we need to note that the potential energy functions change for different states of the system. This is crucial, and it is the basis for performing free energy calculations. More precisely, for practical system calculations, the form of the potential energy function is:
@@ -178,6 +183,7 @@ $$
 In actual sampling, we use this formula by performing a series of samplings at different discrete $$\lambda$$ values and calculating the corresponding $$U_B - U_A$$, then summing them to obtain an approximate estimate of the free energy difference.
 
 ### Umbrella Sampling
+
 From the discussion in the previous section on thermodynamic integration, we recognize that the starting point for free energy calculation is to express the change in the Hamiltonian (potential energy function) of the system either implicitly (FEP and MBAR) or explicitly (HI method) using some variable and estimate the free energy difference through sampling. With this understanding, let's look at a new sampling method (which is also a free energy calculation method): umbrella sampling, which is another explicit method for expressing Hamiltonian changes.
 
 In umbrella sampling, we define a collective variable $$\xi(r)$$ to explicitly express the change in the system state. It is assumed that coordinates unrelated to this collective variable have a negligible effect on the system state change. Therefore, the Hamiltonian of the system becomes a function of this collective variable:
@@ -192,7 +198,7 @@ $$
 
 The total potential energy
 
- function with the bias potential added is:
+function with the bias potential added is:
 
 $$
 E^{\mathrm{b}}(r)=E^{\mathrm{u}}(r)+\omega_i(\xi)
@@ -200,7 +206,7 @@ $$
 
 We know that free energy is a property of the equilibrium state of the system, meaning that free energy should be determined by the equilibrium potential energy function of the system:
 
-$$ 
+$$
 F_i (\xi) = - \frac{1}{\beta} \int \exp [-\beta E^{u}(r)] \delta\left[\xi(r)-\xi\right] d^{N}{r} =- \frac{1}{\beta} P_{i}^{\mathrm{u}}(\xi)
 $$
 
@@ -212,7 +218,7 @@ $$
 
 On the other hand, in umbrella sampling, the system evolves under the total potential energy function $$E^{\mathrm{b}}(r)$$ with the bias potential added. The real question in umbrella sampling is: how can we use the trajectories under the bias potential to calculate the equilibrium free energy? To achieve this, we try to use the bias potential to express the equilibrium free energy. First, we can write the probability distribution of the collective variable $$\xi(r)$$ under the bias potential:
 
-$$ P_{i}^{\mathrm{b}}(\xi)=\frac{\int \exp \left\{-\beta\left[E(r)+\omega_{i}\left(\xi(r)\right)\right]\right\} \delta\left[\xi(r)-\xi\right] d^{N}{r}}{\int \exp \left\{-\beta\left[E(r)+\omega_{i}\left(\xi(r)\right)\right]\right\} d^{N}{r}} $$
+$$ P*{i}^{\mathrm{b}}(\xi)=\frac{\int \exp \left\{-\beta\left[E(r)+\omega*{i}\left(\xi(r)\right)\right]\right\} \delta\left[\xi(r)-\xi\right] d^{N}{r}}{\int \exp \left\{-\beta\left[E(r)+\omega_{i}\left(\xi(r)\right)\right]\right\} d^{N}{r}} $$
 
 Therefore, we can express the equilibrium probability distribution using the bias probability distribution:
 
