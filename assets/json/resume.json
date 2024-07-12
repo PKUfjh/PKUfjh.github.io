@@ -22,8 +22,8 @@
       "name": "Beigene",
       "position": "Research Intern",
       "url": "https://www.beigene.com/",
-      "startDate": "2024-06-30",
-      "endDate": "2024-02-07",
+      "startDate": "2024-02-07",
+      "endDate": "2024-06-30",
       "summary": "Development of allosteric site detection algorithm.",
       "highlights": ["Target discoverys"]
     },
@@ -40,8 +40,8 @@
       "name": "Wolfram Research",
       "position": "Summer school student",
       "url": "https://www.wolfram.com/",
-      "startDate": "2020-07-01",
-      "endDate": "2020-06-01",
+      "startDate": "2020-06-01",
+      "endDate": "2020-07-01",
       "summary": "Analysis of the evolution of articles on ArXiv.",
       "highlights": ["Natural language processing"]
     },
@@ -49,8 +49,8 @@
       "name": "Flatiron Institute",
       "position": "Research Intern",
       "url": "https://www.simonsfoundation.org/flatiron/",
-      "startDate": "2019-08-22",
-      "endDate": "2019-06-22",
+      "startDate": "2019-06-22",
+      "endDate": "2019-08-22",
       "summary": "Analysis of motion detection model of fruit fly.",
       "highlights": ["Computational Neuroscience"]
     }
@@ -69,10 +69,10 @@
       "institution": "Peking University",
       "location": "Beijing, China",
       "url": "https://english.pku.edu.cn/",
-      "area": "Theoretical Physics",
+      "area": "Life Science and Physics",
       "studyType": "Bachelor of Science",
       "startDate": "2016-09-01",
-      "endDate": "2010-07-01"
+      "endDate": "2020-07-01"
     }
   ],
   "awards": [
