@@ -137,14 +137,20 @@ Since the manifold of $$SU(2)$$ is $$S^3$$, the Haar measure of $$SU(2)$$ can be
 \mathrm{d} \mu(U)=\delta\Bigg(\sqrt{\sum\nolimits*{i=0}^3 a_i^2}-1\Bigg) \prod*{i=0}^3 \mathrm{~d} a_i
 \end{equation}
 On the other hand, we can parameterize the 4D coordinates as: $$\left(a_i\right)=r \cdot\left(\cos \frac{\theta}{2}, \sin \frac{\theta}{2}(\sin \vartheta \cos \phi, \sin \vartheta \sin \phi, \cos \vartheta)\right)$$, so we can transform the measure in 4D coordinate space into the axis-angle space by computing the jacobian, namely
+
+$$
 \begin{equation}
 \delta(r-1) \cdot\left|\frac{\partial\left(a_0, a_1, a_2, a_3\right)}{\partial(r, \theta, \vartheta, \phi)}\right| \cdot \mathrm{d} r \mathrm{~d} \theta \mathrm{d} \vartheta \mathrm{d} \phi=\frac{1}{2} \sin ^2 \frac{\theta}{2} \sin \vartheta \mathrm{d} \theta \mathrm{d} \vartheta \mathrm{d} \phi = \frac{1}{2} \sin ^2 \frac{\theta}{2} \mathrm{~d} \theta \cdot \mathrm{d}^2 \boldsymbol{n}
 \end{equation}
+$$
+
 From this expression, we can know that in the axis-angle representation of the $$SU(2)$$ group, the measure in angle space is proportional to $$\sin ^2 \frac{\theta}{2} = 1 - \cos \theta $$, the measure in axis space is constant. Since the axis-angle representation of the $$SU(2)$$ group has a two-to-one correspondence to the axis-angle representation of the $$SO(3)$$ group with the same angle $$\theta$$ and axis $$n$$, the measure in the axis-angle representation of the $$SO(3)$$ group angle space is also proportional to $$1 - \cos \theta $$, and the measure in the axis space is uniform.
 
 From another point of view, the prior distribution in the rotation angle space is proportional to $$1 - \cos \theta $$, and the prior distribution in the axis space is uniform.
 
 Now we consider the noise adding process in $$SO(3)$$ space. Like the random walk in 3D space, we apply small random rotation matrix on an initial matrix iteratively. We generate three small angles from a gaussain distribution, and compose them with Lie algebra matrix to get the rotation matrix. To write it formally,
+
+$$
 \begin{equation}
 r^{(t+1)}=\exp \left\lbrace\sum*{d=1}^3 \epsilon_d G_d\right\rbrace r^t
 \end{equation}
@@ -152,6 +158,8 @@ Specifically, we set the standard deviation of the gaussian noise to be 0.2. Aft
 \begin{equation}
 f(\omega, \sigma)=\frac{1-\cos \omega}{\pi} \sum*{l=0}^{\infty}(2 l+1) e^{-l(l+1) \sigma^2/2} \frac{\sin \left(\left(l+\frac{1}{2}\right) \omega\right)}{\sin (\omega / 2)}
 \end{equation}
+$$
+
 The right figure is the ten steps random walk, whose angle distribution corresponds to the IGSO3 distribution with standard deviation $$\sigma = \sqrt{0.2^2 * 10} = 0.6325$$.
 
 <div class="row mt-3">
@@ -225,9 +233,13 @@ where $$q (r^{(t)}$$ is the probability density of matrix $$r^{(t)}$$ of the mar
 # Score function in $$SO(3)$$ space with trained model
 
 At this stage, if we do not impose model information in the diffusion process, the marginal distribution of $$q(r^{(t)})$$ is just the IGSO(3) distribution as a function of the rotation angle, then the score function is the derivative of the function w.r.t the three Lie algebra basis matrices, namely:
+
+$$
 \begin{equation}
 \nabla*r \log q\left(r^{(t)}\right) =\left.\nabla_r \omega\left( \bar{r}^{\top} r^{(t)} \right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|*{\omega=\omega\left(\bar{r}^{\top} r\right)}
 \end{equation}
+$$
+
 Note we divide the IGSO3 distribution by the measure in $$SO(3)$$ space to get the probability density.
 
 Now we impose model information in the diffusion process. First of all, according to the denoised score matching objective, we can use the conditional score to approximate the true score function:
@@ -260,9 +272,13 @@ $$
 Note we divide the IGSO3 distribution by the measure in $$SO(3)$$ space.
 
 Now the crucial thing to compute is the derivative of the rotation angle with respect to the rotation matrix,namely
+
+$$
 \begin{equation}
 \nabla_r \omega\left(\hat{r}^{\top} r\right)
 \end{equation}
+$$
+
 This is exactly the kind of derivatives defined in eq(\ref{eq:2}), the derivative of a scalar function with respect to a $$SO(3)$$ matrix.
 
 Some important $$\textbf{facts}$$ before taking the derivatives is that, when doing matrix multiplication:
