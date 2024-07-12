@@ -3,7 +3,6 @@ layout: post
 title: All you need to know about free energy (Part I)
 date: 2023-11-07 0:00:00
 tags: Physics
-categories: sample-posts
 ---
 
 # Fundamental Theory of Free Energy

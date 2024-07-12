@@ -3,8 +3,7 @@ layout: post
 title: Diffusion model in SO(3) space
 date: 2023-08-01 0:00:00
 description: this is what a post that can be cited looks like
-tags: formatting citation
-categories: sample-posts
+tags: AI
 citation: true
 ---
 
