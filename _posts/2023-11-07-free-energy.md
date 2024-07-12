@@ -1,6 +1,7 @@
 ---
 layout: post
 title: All you need to know about free energy (Part I)
+description: This post describe equilibrium free energy theory.
 date: 2023-11-07 0:00:00
 tags: Physics
 ---
