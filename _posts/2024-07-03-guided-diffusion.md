@@ -49,7 +49,7 @@ $$
 \end{equation}
 $$
 
-where $$\nabla_{x_t} \log p(x_t)$$ is the original score function, $$\nabla_{x_t} \log p(y|x_t)$$ is the learned classifier function term.
+where $$\nabla_{x_t} \log p(x_t)$$ is the original score function, $$\nabla_{x_t} \log p(y \mid x_t)$$ is the learned classifier function term.
 
 In order to derive this formulation, A naive derivation goes like this:
 
