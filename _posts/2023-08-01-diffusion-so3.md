@@ -132,9 +132,11 @@ $$
 Notice that $$a_i$$ and $$-a_i$$ correspond to the same $$SO(3)$$ matrix, so we have group structure isophism: $$\mathrm{SO}(3) \simeq \mathrm{SU}(2) / \mathbb{Z}_2$$.
 
 Since the manifold of $$SU(2)$$ is $$S^3$$, the Haar measure of $$SU(2)$$ can be represented as:
+$$
 \begin{equation}
 \mathrm{d} \mu(U)=\delta\Bigg(\sqrt{\sum\nolimits*{i=0}^3 a_i^2}-1\Bigg) \prod*{i=0}^3 \mathrm{~d} a_i
 \end{equation}
+$$
 On the other hand, we can parameterize the 4D coordinates as: $$\left(a_i\right)=r \cdot\left(\cos \frac{\theta}{2}, \sin \frac{\theta}{2}(\sin \vartheta \cos \phi, \sin \vartheta \sin \phi, \cos \vartheta)\right)$$, so we can transform the measure in 4D coordinate space into the axis-angle space by computing the jacobian, namely
 
 $$
@@ -153,7 +155,10 @@ $$
 \begin{equation}
 r^{(t+1)}=\exp \left\lbrace\sum*{d=1}^3 \epsilon_d G_d\right\rbrace r^t
 \end{equation}
+$$
+
 Specifically, we set the standard deviation of the gaussian noise to be 0.2. After a certain number of steps, we can reach the final matrix of this process, we compute the rotation angle of this final matrix relative to the initial matrix, we can get the overall distribution of the rotation angle, as in the following figure, the left figure is the single step random walk, whose angle distribution corresponds to the so called IGSO3 distribution with the same standard deviation $$\sigma = 0.2$$.
+$$
 \begin{equation}
 f(\omega, \sigma)=\frac{1-\cos \omega}{\pi} \sum*{l=0}^{\infty}(2 l+1) e^{-l(l+1) \sigma^2/2} \frac{\sin \left(\left(l+\frac{1}{2}\right) \omega\right)}{\sin (\omega / 2)}
 \end{equation}
