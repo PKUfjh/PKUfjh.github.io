@@ -75,7 +75,7 @@ $$
 \end{equation}
 $$
 
-# Mean force estimator for constraiend MD
+# Mean force estimator for constrained MD
 
 We show that if there exists $$b_i(r)$$, such that:
 
