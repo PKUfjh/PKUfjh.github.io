@@ -1465,7 +1465,9 @@ function create(source, zoom, debug) {
 
   svg.setAttribute(
     "viewBox",
-    `${-padding} ${-padding} ${width * 30 + 2 * padding} ${height * 54 + 2 * padding}`,
+    `${-padding} ${-padding} ${width * 30 + 2 * padding} ${
+      height * 54 + 2 * padding
+    }`,
   );
   svg.setAttribute("class", "debug");
   svg.appendChild(render(diagram));

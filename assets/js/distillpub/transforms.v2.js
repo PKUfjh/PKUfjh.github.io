@@ -995,7 +995,9 @@
   }
   function doi_string(ent, new_line) {
     if ("doi" in ent) {
-      return `${new_line ? "<br>" : ""} <a href="https://doi.org/${ent.doi}" style="text-decoration:inherit;">DOI: ${ent.doi}</a>`;
+      return `${new_line ? "<br>" : ""} <a href="https://doi.org/${
+        ent.doi
+      }" style="text-decoration:inherit;">DOI: ${ent.doi}</a>`;
     } else {
       return "";
     }
@@ -15582,9 +15584,15 @@
     if (data.publishedDate) {
       appendHead(`
     <!--  https://schema.org/Article -->
-    <meta property="description"       itemprop="description"   content="${escapeHtml_1(data.description)}" />
-    <meta property="article:published" itemprop="datePublished" content="${data.publishedISODateOnly}" />
-    <meta property="article:created"   itemprop="dateCreated"   content="${data.publishedISODateOnly}" />
+    <meta property="description"       itemprop="description"   content="${escapeHtml_1(
+      data.description,
+    )}" />
+    <meta property="article:published" itemprop="datePublished" content="${
+      data.publishedISODateOnly
+    }" />
+    <meta property="article:created"   itemprop="dateCreated"   content="${
+      data.publishedISODateOnly
+    }" />
     `);
     }
 
@@ -15598,7 +15606,9 @@
       appendHtml(
         head,
         `
-    <meta property="article:author" content="${escapeHtml_1(a.firstName)} ${escapeHtml_1(a.lastName)}" />`,
+    <meta property="article:author" content="${escapeHtml_1(
+      a.firstName,
+    )} ${escapeHtml_1(a.lastName)}" />`,
       );
     });
 
@@ -15617,7 +15627,9 @@
     <!--  https://dev.twitter.com/cards/types/summary -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${escapeHtml_1(data.title)}">
-    <meta name="twitter:description" content="${escapeHtml_1(data.description)}">
+    <meta name="twitter:description" content="${escapeHtml_1(
+      data.description,
+    )}">
     <meta name="twitter:url" content="${data.url}">
     <meta name="twitter:image" content="${data.previewURL}">
     <meta name="twitter:image:width" content="560">
@@ -16264,7 +16276,9 @@ distill-header .nav a {
         html += `<a href="${frontMatter.githubCompareUpdatesUrl}">View all changes</a> to this article since it was first published.`;
       }
       html += `
-    If you see mistakes or want to suggest changes, please <a href="${frontMatter.githubUrl + "/issues/new"}">create an issue on GitHub</a>. </p>
+    If you see mistakes or want to suggest changes, please <a href="${
+      frontMatter.githubUrl + "/issues/new"
+    }">create an issue on GitHub</a>. </p>
     `;
     }
 
@@ -16280,9 +16294,13 @@ distill-header .nav a {
       html += `
     <h3 id="citation">Citation</h3>
     <p>For attribution in academic contexts, please cite this work as</p>
-    <pre class="citation short">${frontMatter.concatenatedAuthors}, "${frontMatter.title}", Distill, ${frontMatter.publishedYear}.</pre>
+    <pre class="citation short">${frontMatter.concatenatedAuthors}, "${
+      frontMatter.title
+    }", Distill, ${frontMatter.publishedYear}.</pre>
     <p>BibTeX citation</p>
-    <pre class="citation long">${serializeFrontmatterToBibtex(frontMatter)}</pre>
+    <pre class="citation long">${serializeFrontmatterToBibtex(
+      frontMatter,
+    )}</pre>
     `;
     }
 
