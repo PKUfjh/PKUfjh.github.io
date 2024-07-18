@@ -6,7 +6,7 @@ date: 2024-07-18 0:00:00
 tags: Physics
 ---
 
-# Minimum free energy path
+# Minimum free energy path (MFEP)
 
 Consider a system in the NVT ensemble, the equilibirum distribution is given by:
 
@@ -109,7 +109,7 @@ $$
 \end{equation}
 $$
 
-In practice, the evolution of the string toward the MFEP can be simulated as follows. The string is discretized using R discretization points (or images), for instance, as $$ z^m (t) =z(m\delta*{\alpha}, t) with $$\delta*{\alpha} = 1/(R-1)$$. To update the discretized string, we then proceed in four steps:
+In practice, the evolution of the string toward the MFEP can be simulated as follows. The string is discretized using R discretization points (or images), for instance, as $$ z^m (t) =z(m\Delta{\alpha}, t)$$ with $$\Delta{\alpha} = 1/(R-1)$$. To update the discretized string, we then proceed in four steps:
 
 1. Calculation of the mean force $$\nabla_z F(z)$$ and the tensor $$M(z)$$,
 
