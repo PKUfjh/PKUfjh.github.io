@@ -120,3 +120,29 @@ In practice, the evolution of the string toward the MFEP can be simulated as fol
 4. reparametrization of the string.
 
 The step 3 and 4 are due to statistical errors and numerical stability issues.
+
+# Doob's h-transform
+
+Since the MD simulation equation can be regarded as a SDE, we consider a general setting, suppose we have a reference SDE like:
+
+$$
+\begin{equation}
+\mathbb{P}_{0: T}^{\text {ref }}: \quad d x_t=b_t\left(x_t\right) \cdot d t+\Xi_t d W_t, \quad x_0 \sim \rho_0(x),
+\end{equation}
+$$
+
+Doob’s h-transform shows that conditioning the reference process on $$x \in \mathcal{B}$$ yields another Brownian motion.
+
+$$
+\begin{equation}
+d x_{t \mid 0, T}=\left(b_t\left(x_{t \mid 0, T}\right)+2 G_t \nabla_x \log h\left(x_{t \mid 0, T}, t\right)\right) d t+\Xi_t d W_t
+\end{equation}
+$$
+
+where $$h(x,t)$$ is denoted the conditional transition density and satisfies:
+
+$$
+\begin{equation}
+\rho\left(x_t=y \mid x_s=x, x_T \in \mathcal{B}\right)=\frac{h(y, s)}{h(x, t)} \rho\left(x_t=y \mid x_s=x\right)
+\end{equation}
+$$
