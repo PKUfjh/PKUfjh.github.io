@@ -391,7 +391,7 @@ external_links:
 # MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
 #   convert -version
 imagemagick:
-  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  enabled: false # responsive images are pre-generated and committed to the repo
   widths:
     - 480
     - 800
@@ -406,6 +406,8 @@ imagemagick:
     - ".gif"
   output_formats:
     webp: "-quality 85"
+
+responsive_webp_images: true # serve committed responsive webp assets without regenerating them in CI
 
 # Lazy loading images
 #   If you enable lazy loading, all images will add the loading="lazy" attribute.
