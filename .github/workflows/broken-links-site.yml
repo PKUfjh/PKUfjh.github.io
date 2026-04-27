@@ -19,12 +19,6 @@ jobs:
         with:
           ruby-version: "3.2.2"
           bundler-cache: true
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-          cache: pip
-          cache-dependency-path: .github/requirements-ci.txt
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v6
         with:
@@ -46,7 +40,6 @@ jobs:
           sudo apt-get install -y imagemagick
       - name: Install and Build 🔧
         run: |
-          pip3 install -r .github/requirements-ci.txt
           export JEKYLL_ENV=production
           bundle exec jekyll build
       - name: Purge unused CSS 🧹
