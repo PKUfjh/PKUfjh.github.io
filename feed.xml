@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://pkufjh.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://pkufjh.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-27T10:59:24+00:00</updated><id>https://pkufjh.github.io//feed.xml</id><title type="html">Jiahao Fan</title><subtitle>Jiahao Fan is a researcher at Peking University and AI for Science Institute, Beijing (AISI), working on AI for Science, generative modeling, LLM for science, and computational biology.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://pkufjh.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://pkufjh.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-27T11:04:45+00:00</updated><id>https://pkufjh.github.io//feed.xml</id><title type="html">Jiahao Fan</title><subtitle>Jiahao Fan is a researcher at Peking University and AI for Science Institute, Beijing (AISI), working on AI for Science, generative modeling, LLM for science, and computational biology.
 </subtitle><entry><title type="html">OpenMM python package</title><link href="https://pkufjh.github.io//blog/2024/openmm/" rel="alternate" type="text/html" title="OpenMM python package" /><published>2024-07-22T00:00:00+00:00</published><updated>2024-07-22T00:00:00+00:00</updated><id>https://pkufjh.github.io//blog/2024/openmm</id><content type="html" xml:base="https://pkufjh.github.io//blog/2024/openmm/"><![CDATA[<h1 id="example">Example</h1>
 
 <p>We start by providing an example. Here is a python function script:</p>
@@ -127,13 +127,13 @@
 
 <p>Runs the simulation for the specified total number of steps (total_steps), performing 100 steps in each iteration of the loop. Let’s discuss the form of the energy function, it can be written as:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 E(r) =
 \begin{cases}
-4.184 \left( a_1 r^3 + a_2 r^2 + a_3 r + a_4 \right) &amp; \text{for } r \leq 0.35 \\
+4.184 \left( a_1 r^3 + a_2 r^2 + a_3 r + a_4 \right) &amp; \text{for } r \leq 0.35 <br />
 4.184 \left( b_1 r^3 + b_2 r^2 + b_3 r + b_4 \right) &amp; \text{for } r &gt; 0.35
 \end{cases}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Different parameters define different values of a and b. (1kcal = 4.184kj)</p>
 
@@ -141,19 +141,19 @@ E(r) =
 
 <p>OpenMM uses the following units:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{array}{|l|l|}
-\hline \text { Quantity } &amp; \text { Units } \\
-\hline \text { distance } &amp; \mathrm{nm} \\
-\hline \text { time } &amp; \mathrm{ps} \\
-\hline \text { mass } &amp; \text { atomic mass units } \\
-\hline \text { charge } &amp; \text { proton charge } \\
-\hline \text { temperature } &amp; \text { Kelvin } \\
-\hline \text { angle } &amp; \text { radians } \\
-\hline \text { energy } &amp; \mathrm{kJ} / \mathrm{mol} \\
+\hline \text { Quantity } &amp; \text { Units } <br />
+\hline \text { distance } &amp; \mathrm{nm} <br />
+\hline \text { time } &amp; \mathrm{ps} <br />
+\hline \text { mass } &amp; \text { atomic mass units } <br />
+\hline \text { charge } &amp; \text { proton charge } <br />
+\hline \text { temperature } &amp; \text { Kelvin } <br />
+\hline \text { angle } &amp; \text { radians } <br />
+\hline \text { energy } &amp; \mathrm{kJ} / \mathrm{mol} <br />
 \hline
 \end{array}
-\end{equation}\]
+\end{equation}</p>
 
 <p>An atomic mass unit is equal to 1/12 the mass of a single atom of carbon-12.</p>
 
@@ -161,9 +161,9 @@ E(r) =
 
 <p>The langevin integrator is:</p>
 
-\[\begin{equation}
-m_i \frac{d \mathbf{v}\_i}{d t}=\mathbf{f}\_i-\gamma m_i \mathbf{v}\_i+\mathbf{R}\_i
-\end{equation}\]
+<p>\begin{equation}
+m_i \frac{d \mathbf{v}_i}{d t}=\mathbf{f}_i-\gamma m_i \mathbf{v}_i+\mathbf{R}_i
+\end{equation}</p>
 
 <p>In OpenMM the langevin integrator can be defined in the class <code class="language-plaintext highlighter-rouge">LangevinIntegrator</code>, where three parameters can be specified in the initialization (temperature, frictionCoeff and stepsize) like:</p>
 
@@ -172,73 +172,73 @@ m_i \frac{d \mathbf{v}\_i}{d t}=\mathbf{f}\_i-\gamma m_i \mathbf{v}\_i+\mathbf{R
 
 <p>Consider a system in the NVT ensemble, the equilibirum distribution is given by:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \rho(x)=Z^{-1} e^{-\beta V(x)}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Suppose that one introduces N collective variables,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \theta(x)=\left(\theta_1(x), \ldots, \theta_N(x)\right)
-\end{equation}\]
+\end{equation}</p>
 
 <p>then the free energy associated with the collective variables is:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
 F(z)= -k_B T \ln \left(Z^{-1} \int_{\mathbb{R}^n} e^{-\beta V(x)} \times \delta\left(z_1-\theta_1(x)\right) \cdots \delta\left(z_N-\theta_N(x)\right) d x\right) .
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Let us represent the MEP by the curve \(x(\alpha)\), where \(\alpha \in [0,1]\) is the parameter used to parametrize the curve. Since
 by definition the force \(- \nabla V\) must be everywhere tangent to the MEP, we must have</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \label{eq:1}
 \frac{d x_k(\alpha)}{d \alpha} \text { parallel to } \frac{\partial V(x(\alpha))}{\partial x_k} \text {. }
-\end{equation}\]
+\end{equation}</p>
 
 <p>If the MEP connects the two minima of \(V(x)\) located at \(x_a\)
 and \(x_b\), Eq. \ref{eq:1} must be supplemented by the boundary conditions \(x(0)=x_a\) and \(x(1)=x_b\).</p>
 
 <p>Let us now consider things in the space of \(z = \theta(x)\), Eq. \ref{eq:1} implies that:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \label{eq:2}
 \begin{aligned}
-\frac{d z_i(\alpha)}{d \alpha}= &amp; \sum_{k=1}^n \frac{\partial \theta_i(x(\alpha))}{\partial x_k} \frac{d x_k(\alpha)}{d \alpha} \\
-&amp; \text { parallel to } \sum_{k=1}^n \frac{\partial \theta_i(x(\alpha))}{\partial x_k} \frac{\partial V(x(\alpha))}{\partial x_k} \\
+\frac{d z_i(\alpha)}{d \alpha}= &amp; \sum_{k=1}^n \frac{\partial \theta_i(x(\alpha))}{\partial x_k} \frac{d x_k(\alpha)}{d \alpha} <br />
+&amp; \text { parallel to } \sum_{k=1}^n \frac{\partial \theta_i(x(\alpha))}{\partial x_k} \frac{\partial V(x(\alpha))}{\partial x_k} <br />
 = &amp; \sum_{j, k=1}^n \frac{\partial \theta_i(x(\alpha))}{\partial x_k} \frac{\partial \theta_j(x(\alpha))}{\partial x_k} \frac{\partial U(z(\alpha))}{\partial z_j} .
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>It is shown in later section that it amounts to replacing \(U(z)\) by \(F(z)\) and the tensor \(\sum_k (\partial \theta_i / \partial x_k) \times (\partial \theta_j / \partial x_k)\) by its average \(M_{ij}\) defined as:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-M_{i j}(z)= &amp; Z^{-1} e^{\beta F(z)} \int_{\mathbb{R}^n} \sum_{k=1}^n \frac{\partial \theta_i(x)}{\partial x_k} \frac{\partial \theta_j(x)}{\partial x_k} e^{-\beta V(x)} \\
+M_{i j}(z)= &amp; Z^{-1} e^{\beta F(z)} \int_{\mathbb{R}^n} \sum_{k=1}^n \frac{\partial \theta_i(x)}{\partial x_k} \frac{\partial \theta_j(x)}{\partial x_k} e^{-\beta V(x)} <br />
 &amp; \times \delta\left(z_1-\theta_1(x)\right) \cdots \delta\left(z_N-\theta_N(x)\right) d x .
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Making these substutions into Eq. \ref{eq:2}, we arrive at:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \frac{d z_i(\alpha)}{d \alpha} \text { parallel to } \sum_{j=1}^N M_{i j}(z(\alpha)) \frac{\partial F(z(\alpha))}{\partial z_j} \text {. }
-\end{equation}\]
+\end{equation}</p>
 
 <p>which also means:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 0=\sum_{j, k=1}^N P_{i j}(\alpha) M_{j k}(z(\alpha)) \frac{\partial F(z(\alpha))}{\partial z_k}
-\end{equation}\]
+\end{equation}</p>
 
 <p>where \(P_{i j}\) is the projector on the plane perpendicular to the path at \(z(\alpha)\),</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \label{eq:3}
 P_{i j}(\alpha)=\delta_{i j}-\hat{t}_i(\alpha) \hat{t}_j(\alpha), \quad \hat{t}_i(\alpha)=\frac{\partial z_i / \partial \alpha}{\left|\partial z_i / \partial \alpha\right|}
-\end{equation}\]
+\end{equation}</p>
 
 <p>How to
 find this solution in practice is explained in the next section.</p>
@@ -247,9 +247,9 @@ find this solution in practice is explained in the next section.</p>
 
 <p>To solve Eq. \ref{eq:3}, The simplest way to evolve \(z(\alpha, t)\) so that it converges to a MFEP is to use,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \frac{\partial z_i(\alpha, t)}{\partial t}=-\sum_{j, k=1}^N P_{i j}(\alpha, t) M_{j k}(z(\alpha, t)) \frac{\partial F(z(\alpha, t))}{\partial z_k},
-\end{equation}\]
+\end{equation}</p>
 
 <p>In practice, the evolution of the string toward the MFEP can be simulated as follows. The string is discretized using R discretization points (or images), for instance, as \(z^m (t) =z(m\Delta{\alpha}, t)\) with \(\Delta{\alpha} = 1/(R-1)\). To update the discretized string, we then proceed in four steps:</p>
 
@@ -274,21 +274,21 @@ find this solution in practice is explained in the next section.</p>
 
 <p>Since the MD simulation equation can be regarded as a SDE, we consider a general setting, suppose we have a reference SDE like:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \mathbb{P}_{0: T}^{\text {ref }}: \quad d x_t=b_t\left(x_t\right) \cdot d t+\Xi_t d W_t, \quad x_0 \sim \rho_0(x),
-\end{equation}\]
+\end{equation}</p>
 
 <p>Doob’s h-transform shows that conditioning the reference process on \(x \in \mathcal{B}\) yields another Brownian motion.</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 d x_{t \mid 0, T}=\left(b_t\left(x_{t \mid 0, T}\right)+2 G_t \nabla_x \log h\left(x_{t \mid 0, T}, t\right)\right) d t+\Xi_t d W_t
-\end{equation}\]
+\end{equation}</p>
 
 <p>where \(h(x,t)\) is denoted the conditional transition density and satisfies:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \rho\left(x_t=y \mid x_s=x, x_T \in \mathcal{B}\right)=\frac{h(y, s)}{h(x, t)} \rho\left(x_t=y \mid x_s=x\right)
-\end{equation}\]]]></content><author><name></name></author><category term="Physics" /><summary type="html"><![CDATA[This post describes string method.]]></summary></entry><entry><title type="html">Guided diffusion models</title><link href="https://pkufjh.github.io//blog/2024/guided-diffusion/" rel="alternate" type="text/html" title="Guided diffusion models" /><published>2024-07-03T00:00:00+00:00</published><updated>2024-07-03T00:00:00+00:00</updated><id>https://pkufjh.github.io//blog/2024/guided-diffusion</id><content type="html" xml:base="https://pkufjh.github.io//blog/2024/guided-diffusion/"><![CDATA[<h1 id="motivations">Motivations</h1>
+\end{equation}</p>]]></content><author><name></name></author><category term="Physics" /><summary type="html"><![CDATA[This post describes string method.]]></summary></entry><entry><title type="html">Guided diffusion models</title><link href="https://pkufjh.github.io//blog/2024/guided-diffusion/" rel="alternate" type="text/html" title="Guided diffusion models" /><published>2024-07-03T00:00:00+00:00</published><updated>2024-07-03T00:00:00+00:00</updated><id>https://pkufjh.github.io//blog/2024/guided-diffusion</id><content type="html" xml:base="https://pkufjh.github.io//blog/2024/guided-diffusion/"><![CDATA[<h1 id="motivations">Motivations</h1>
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
@@ -322,15 +322,15 @@ d x_{t \mid 0, T}=\left(b_t\left(x_{t \mid 0, T}\right)+2 G_t \nabla_x \log h\le
 
 <p>Forward process:</p>
 
-\[\begin{equation}
-q\left(\mathbf{x}_t \mid \mathbf{x}_{t-1}\right)=\mathcal{N}\left(\mathbf{x}_t ; \sqrt{1-\beta_t} \mathbf{x}_{t-1}, \beta_t \mathbf{I}\right) \quad q\left(\mathbf{x}_{1: T} \mid \mathbf{x}_0\right)=\prod_{t=1}^T q\left(\mathbf{x}_t \mid \mathbf{x}_{t-1}\right)
-\end{equation}\]
+<p>\begin{equation}
+q\left(\mathbf{x}<em>t \mid \mathbf{x}</em>{t-1}\right)=\mathcal{N}\left(\mathbf{x}<em>t ; \sqrt{1-\beta_t} \mathbf{x}</em>{t-1}, \beta_t \mathbf{I}\right) \quad q\left(\mathbf{x}<em>{1: T} \mid \mathbf{x}_0\right)=\prod</em>{t=1}^T q\left(\mathbf{x}<em>t \mid \mathbf{x}</em>{t-1}\right)
+\end{equation}</p>
 
 <p>Backward process:</p>
 
-\[\begin{equation}
-q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)=q\left(\mathbf{x}_t \mid \mathbf{x}_{t-1}, \mathbf{x}_0\right) \frac{q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_0\right)}{q\left(\mathbf{x}_t \mid \mathbf{x}_0\right)}
-\end{equation}\]
+<p>\begin{equation}
+q\left(\mathbf{x}<em>{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)=q\left(\mathbf{x}_t \mid \mathbf{x}</em>{t-1}, \mathbf{x}<em>0\right) \frac{q\left(\mathbf{x}</em>{t-1} \mid \mathbf{x}_0\right)}{q\left(\mathbf{x}_t \mid \mathbf{x}_0\right)}
+\end{equation}</p>
 
 <p>The forward process is a determined process in diffusion models, it is only a matter of learning the conditional probability function \(q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)\) or the so-called score function \(\nabla_{x_{t-1}} \log q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)\) in order to learn the data distribution and to do the sampling.</p>
 
@@ -338,17 +338,17 @@ q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)=q\left(\mathbf{x}
 
 <p>In the framework of classifier guidance, a classifier function should be learned to be used as guidance, namely the new score function goes like:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \nabla_{x_t} \log p(x_t | y) =  \nabla_{x_t} \log p(x_t) + \nabla_{x_t} \log p(y | x_t)
-\end{equation}\]
+\end{equation}</p>
 
 <p>where \(\nabla_{x_t} \log p(x_t)\) is the original score function, \(\nabla_{x_t} \log p(y \mid x_t)\) is the learned classifier function term.</p>
 
 <p>In order to derive this formulation, A naive derivation goes like this:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
     p(x_t | y) = \frac{p(x_t, y)}{p(y)} = \frac{p(y | x_t) p(x_t)}{p(y)}
-\end{equation}\]
+\end{equation}</p>
 
 <p>where the new probability function now depends on the guidance label \(y\). And since the denominator does not depend on \(x_t\), we can reach the above formulation after taking logarithm and derivative.</p>
 
@@ -356,24 +356,24 @@ q\left(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0\right)=q\left(\mathbf{x}
 
 <p>Let’s add the scale factor to the classifier guidance score function:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
  \nabla_{x_t} \log p(x_t) + \eta \nabla_{x_t} \log p(y | x_t)
-\end{equation}\]
+\end{equation}</p>
 
 <p>Now we again use the bayes’ rule:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
  p(y | x_t) =  p(x_t | y) \frac{p(y)}{p(x_t)}
-\end{equation}\]
+\end{equation}</p>
 
 <p>So the score function can be rewritten as:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-s(x_t, x_{t+1}, y) &amp; =  \nabla_{x_t} \log p(x_t) + \eta \nabla_{x_t} (\log p(x_t | y) -\log p(x_t) )\\
+s(x_t, x_{t+1}, y) &amp; =  \nabla_{x_t} \log p(x_t) + \eta \nabla_{x_t} (\log p(x_t | y) -\log p(x_t) )<br />
 &amp; = (1-\eta)\nabla_{x_t} \log p(x_t) + \eta \nabla_{x_t} \log p(x_t | y)
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Namely, we can train one model conditioned on the label selectively. When doing inference, we can use \(\eta\) to control the scale of the conditioned score function.</p>
 
@@ -381,52 +381,52 @@ s(x_t, x_{t+1}, y) &amp; =  \nabla_{x_t} \log p(x_t) + \eta \nabla_{x_t} (\log p
 
 <p>The target distribution is:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 p_0\left(\boldsymbol{x}_0\right) \propto q_0\left(\boldsymbol{x}_0\right) e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)} .
-\end{equation}\]
+\end{equation}</p>
 
 <p>Suppose the marginal distribution \(q_t (x_t)\) of the forward process starting from \(q_0(x_0)\), then a pre-trained model can be obtained by learning the the score function \(\nabla_{x_t} \log q_t(x_t)\). In the same flavor, in order to learn \(p_0 (x_0)\), the model have to learn the intermediate score function \(\nabla_{x_t} \log p_t(x_t)\). In the following we show that under the assumption that the noising process for \(p_0(x_0)\) and \(q_0(x_0)\) are the same, the noisy distribution \(p_t(x_t)\) and \(q_t(x_t)\) will satisfy:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 p_t\left(\boldsymbol{x}_t\right) \propto q_t\left(\boldsymbol{x}_t\right) e^{-\mathcal{E}_t\left(\boldsymbol{x}_t\right)},
-\end{equation}\]
+\end{equation}</p>
 
 <p>where：</p>
 
-\[\begin{equation}
-\mathcal{E}_t\left(\boldsymbol{x}_t\right):= \begin{cases}\beta \mathcal{E}\left(\boldsymbol{x}_0\right), &amp; t=0 \\ -\log \mathbb{E}_{q_{0 t}\left(\boldsymbol{x}_0 \mid \boldsymbol{x}_t\right)}\left[e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)}\right], &amp; t&gt;0\end{cases}
-\end{equation}\]
+<p>\begin{equation}
+\mathcal{E}<em>t\left(\boldsymbol{x}_t\right):= \begin{cases}\beta \mathcal{E}\left(\boldsymbol{x}_0\right), &amp; t=0 \ -\log \mathbb{E}</em>{q_{0 t}\left(\boldsymbol{x}_0 \mid \boldsymbol{x}_t\right)}\left[e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)}\right], &amp; t&gt;0\end{cases}
+\end{equation}</p>
 
 <p>We give a proof here:</p>
 
-\[\begin{equation}
-p_{t 0}\left(\boldsymbol{x}_t \mid \boldsymbol{x}_0\right):=q_{t 0}\left(\boldsymbol{x}_t \mid \boldsymbol{x}_0\right)=\mathcal{N}\left(\boldsymbol{x}_t \mid \alpha_t \boldsymbol{x}_0, \sigma_t^2 \boldsymbol{I}\right)
-\end{equation}\]
+<p>\begin{equation}
+p_{t 0}\left(\boldsymbol{x}<em>t \mid \boldsymbol{x}_0\right):=q</em>{t 0}\left(\boldsymbol{x}_t \mid \boldsymbol{x}_0\right)=\mathcal{N}\left(\boldsymbol{x}_t \mid \alpha_t \boldsymbol{x}_0, \sigma_t^2 \boldsymbol{I}\right)
+\end{equation}</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-p_t\left(\boldsymbol{x}_t\right) &amp; =\int p_{t 0}\left(\boldsymbol{x}_t \mid \boldsymbol{x}_0\right) p_0\left(\boldsymbol{x}_0\right) \mathrm{d} \boldsymbol{x}_0 \\
-&amp; =\int p_{t 0}\left(\boldsymbol{x}_t \mid \boldsymbol{x}_0\right) q_0\left(\boldsymbol{x}_0\right) \frac{e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)}}{Z} \mathrm{~d} \boldsymbol{x}_0 \\
-&amp; =\int q_{t 0}\left(\boldsymbol{x}_t \mid \boldsymbol{x}_0\right) q_0\left(\boldsymbol{x}_0\right) \frac{e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)}}{Z} \mathrm{~d} \boldsymbol{x}_0 \\
-&amp; =q_t\left(\boldsymbol{x}_t\right) \int q_{0t}\left(\boldsymbol{x}_0 \mid \boldsymbol{x}_t\right) \frac{e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)}}{Z} \mathrm{~d} \boldsymbol{x}_0 \\
-&amp; =\frac{q_t\left(\boldsymbol{x}_t\right) \mathbb{E}_{q_{0t}\left(\boldsymbol{x}_0 \mid \boldsymbol{x}_t\right)}\left[e^{\left.-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)\right]}\right.}{Z} \\
+p_t\left(\boldsymbol{x}<em>t\right) &amp; =\int p</em>{t 0}\left(\boldsymbol{x}<em>t \mid \boldsymbol{x}_0\right) p_0\left(\boldsymbol{x}_0\right) \mathrm{d} \boldsymbol{x}_0 <br />
+&amp; =\int p</em>{t 0}\left(\boldsymbol{x}<em>t \mid \boldsymbol{x}_0\right) q_0\left(\boldsymbol{x}_0\right) \frac{e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)}}{Z} \mathrm{~d} \boldsymbol{x}_0 <br />
+&amp; =\int q</em>{t 0}\left(\boldsymbol{x}<em>t \mid \boldsymbol{x}_0\right) q_0\left(\boldsymbol{x}_0\right) \frac{e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)}}{Z} \mathrm{~d} \boldsymbol{x}_0 <br />
+&amp; =q_t\left(\boldsymbol{x}_t\right) \int q</em>{0t}\left(\boldsymbol{x}<em>0 \mid \boldsymbol{x}_t\right) \frac{e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)}}{Z} \mathrm{~d} \boldsymbol{x}_0 <br />
+&amp; =\frac{q_t\left(\boldsymbol{x}_t\right) \mathbb{E}</em>{q_{0t}\left(\boldsymbol{x}_0 \mid \boldsymbol{x}_t\right)}\left[e^{\left.-\beta \mathcal{E}\left(\boldsymbol{x}_0\right)\right]}\right.}{Z} <br />
 &amp; =\frac{q_t\left(\boldsymbol{x}_t\right) e^{-\mathcal{E}_t\left(\boldsymbol{x}_t\right)}}{Z}
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>The score function with energy guidance is:</p>
 
-\[\begin{equation}
-\nabla_{\boldsymbol{x}_t} \log p_t\left(\boldsymbol{x}_t\right)=\underbrace{\nabla_{\boldsymbol{x}_t} \log q_t\left(\boldsymbol{x}_t\right)}_{\approx-\boldsymbol{\epsilon}_\theta\left(\boldsymbol{x}_t, t\right) / \sigma_t}-\underbrace{\nabla_{\boldsymbol{x}_t} \mathcal{E}_t\left(\boldsymbol{x}_t\right)}_{\begin{array}{c}
+<p>\begin{equation}
+\nabla_{\boldsymbol{x}<em>t} \log p_t\left(\boldsymbol{x}_t\right)=\underbrace{\nabla</em>{\boldsymbol{x}<em>t} \log q_t\left(\boldsymbol{x}_t\right)}</em>{\approx-\boldsymbol{\epsilon}<em>\theta\left(\boldsymbol{x}_t, t\right) / \sigma_t}-\underbrace{\nabla</em>{\boldsymbol{x}<em>t} \mathcal{E}_t\left(\boldsymbol{x}_t\right)}</em>{\begin{array}{c}
 \text {energy guidance (intractable)}
 \end{array}} .
-\end{equation}\]
+\end{equation}</p>
 
 <p>The first term is given by the pretrained model, the remaining problem is to estimate the latter. We show in the next slide that the solution \(f_{\boldsymbol{\phi}^*}\left(\boldsymbol{x}_t, t\right)\) to the following problem:</p>
 
-\[\begin{equation}
-\min _\phi \mathbb{E}_{p(t)} \mathbb{E}_{q_0\left(\boldsymbol{x}_0^{(1: K)}\right)} \mathbb{E}_{p\left(\boldsymbol{\epsilon}^{(1: K)}\right)}\left[-\sum_{i=1}^K e^{-\beta \mathcal{E}\left(\boldsymbol{x}_0^{(i)}\right)} \log \frac{e^{-f_\phi\left(\boldsymbol{x}_t^{(i)}, t\right)}}{\sum_{j=1}^K e^{-f_\phi\left(\boldsymbol{x}_t^{(j)}, t\right)}}\right]
-\end{equation}\]
+<p>\begin{equation}
+\min <em>\phi \mathbb{E}</em>{p(t)} \mathbb{E}<em>{q_0\left(\boldsymbol{x}_0^{(1: K)}\right)} \mathbb{E}</em>{p\left(\boldsymbol{\epsilon}^{(1: K)}\right)}\left[-\sum_{i=1}^K e^{-\beta \mathcal{E}\left(\boldsymbol{x}<em>0^{(i)}\right)} \log \frac{e^{-f</em>\phi\left(\boldsymbol{x}<em>t^{(i)}, t\right)}}{\sum</em>{j=1}^K e^{-f_\phi\left(\boldsymbol{x}_t^{(j)}, t\right)}}\right]
+\end{equation}</p>
 
 <p>will satisfy \(\nabla_{\boldsymbol{x}_t} f_{\boldsymbol{\phi}^*}\left(\boldsymbol{x}_t, t\right)=\nabla_{\boldsymbol{x}_t} \mathcal{E}_t\left(\boldsymbol{x}_t\right)\). Intuitively, it is the cross-entropy loss between the intermediate energy model and the trained model.</p>
 
@@ -434,63 +434,63 @@ p_t\left(\boldsymbol{x}_t\right) &amp; =\int p_{t 0}\left(\boldsymbol{x}_t \mid 
 
 <p>Similar to the intermediate energy expression, we can define the intermediate force as:</p>
 
-\[\begin{equation}
-\nabla_{\mathbf{x}_t} \mathcal{E}_t\left(\mathbf{x}_t\right)=\frac{\mathbb{E}_{q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right)}\left[e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)\right]}{k \mathbb{E}_{q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right)}\left[e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\right]}
-\end{equation}\]
+<p>\begin{equation}
+\nabla_{\mathbf{x}<em>t} \mathcal{E}_t\left(\mathbf{x}_t\right)=\frac{\mathbb{E}</em>{q_t\left(\mathbf{x}<em>0 \mid \mathbf{x}_t\right)}\left[e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)\right]}{k \mathbb{E}</em>{q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right)}\left[e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\right]}
+\end{equation}</p>
 
 <p>where \(\zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)=\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t\right)-\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right)\).
 We give a proof here, from the expression of the intermediate energy, we have the expression of the intermediate force</p>
 
-\[\begin{equation}
-\nabla_{\mathbf{x}_t} \mathcal{E}_t\left(\mathbf{x}_t\right)=-\frac{\int e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \nabla_{\mathbf{x}_t} q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) \mathrm{d} \mathbf{x}_0}{k \int q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \mathrm{d} \mathbf{x}_0}
-\end{equation}\]
+<p>\begin{equation}
+\nabla_{\mathbf{x}<em>t} \mathcal{E}_t\left(\mathbf{x}_t\right)=-\frac{\int e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \nabla</em>{\mathbf{x}_t} q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) \mathrm{d} \mathbf{x}_0}{k \int q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \mathrm{d} \mathbf{x}_0}
+\end{equation}</p>
 
 <p>The numerator \(N\) evaluates as:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-N &amp; =\int e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) \nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) \mathrm{d} \mathbf{x}_0 \\
-&amp; =\int q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \nabla_{\mathbf{x}_t} \log \frac{q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) q_0\left(\mathbf{x}_0\right)}{q_t\left(\mathbf{x}_t\right)} \mathrm{d} \mathbf{x}_0 \\
-&amp; =\int q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\left(\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right)-\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t\right)\right) \mathrm{d} \mathbf{x}_0 \\
-&amp; =\mathbb{E}_{q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right)}\left[e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\left(\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right)-\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t\right)\right)\right]
+N &amp; =\int e^{-k \mathcal{E}<em>0\left(\mathbf{x}_0\right)} q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) \nabla</em>{\mathbf{x}<em>t} \log q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) \mathrm{d} \mathbf{x}_0 <br />
+&amp; =\int q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \nabla</em>{\mathbf{x}<em>t} \log \frac{q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) q_0\left(\mathbf{x}_0\right)}{q_t\left(\mathbf{x}_t\right)} \mathrm{d} \mathbf{x}_0 <br />
+&amp; =\int q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\left(\nabla</em>{\mathbf{x}<em>t} \log q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right)-\nabla</em>{\mathbf{x}<em>t} \log q_t\left(\mathbf{x}_t\right)\right) \mathrm{d} \mathbf{x}_0 <br />
+&amp; =\mathbb{E}</em>{q_t\left(\mathbf{x}<em>0 \mid \mathbf{x}_t\right)}\left[e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\left(\nabla</em>{\mathbf{x}<em>t} \log q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right)-\nabla</em>{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t\right)\right)\right]
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>the intermediate force evaluates as:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-\nabla_{\mathbf{x}_t} \mathcal{E}_t\left(\mathbf{x}_t\right) &amp; =-\frac{\mathbb{E}_{q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right)}\left[-e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)\right]}{k \mathbb{E}_{q_t\left(\mathbf{x}_0 \mid \mathbf{x}_t\right)}\left[e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\right]} \\
-&amp; =\frac{\mathbb{E}_{q_0\left(\mathbf{x}_0\right)}\left[q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)\right]}{k \mathbb{E}_{q_0\left(\mathbf{x}_0\right)}\left[q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\right]} .
+\nabla_{\mathbf{x}<em>t} \mathcal{E}_t\left(\mathbf{x}_t\right) &amp; =-\frac{\mathbb{E}</em>{q_t\left(\mathbf{x}<em>0 \mid \mathbf{x}_t\right)}\left[-e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)\right]}{k \mathbb{E}</em>{q_t\left(\mathbf{x}<em>0 \mid \mathbf{x}_t\right)}\left[e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\right]} <br />
+&amp; =\frac{\mathbb{E}</em>{q_0\left(\mathbf{x}<em>0\right)}\left[q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)\right]}{k \mathbb{E}</em>{q_0\left(\mathbf{x}_0\right)}\left[q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)}\right]} .
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>where \(\zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)=\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t\right)-\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right)\).
 So the idea is that we can train a model to learn this intermediate force, and apply that to guide the diffusion process, namely the score function goes:</p>
 
-\[\begin{equation}
-\nabla_{\mathbf{x}_t} \log p_t\left(\mathbf{x}_t\right)=\nabla_{\mathbf{x}_t} \log q_t\left(\mathbf{x}_t\right)-\eta \nabla_{\mathbf{x}_t} \mathcal{E}_t\left(\mathbf{x}_t\right),
-\end{equation}\]
+<p>\begin{equation}
+\nabla_{\mathbf{x}<em>t} \log p_t\left(\mathbf{x}_t\right)=\nabla</em>{\mathbf{x}<em>t} \log q_t\left(\mathbf{x}_t\right)-\eta \nabla</em>{\mathbf{x}_t} \mathcal{E}_t\left(\mathbf{x}_t\right),
+\end{equation}</p>
 
 <p>where \(\eta\) is the parameter which controls the guidance strength.</p>
 
 <p>Finally we have the force-guided algorithm:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-&amp;\text { Input: generated data } \mathbf{x}_0 \text { in a batch } K \text {, score model }\\
-&amp;s_\theta\left(\mathbf{x}_t, t\right) \text { in Section 4.1, energy } \mathcal{E}_0\left(\mathbf{x}_0\right) \text {, force } \nabla_{\mathbf{x}_0} \mathcal{E}_0\left(\mathbf{x}_0\right) \text {, }\\
-&amp;\text { intermediate force network } h_\psi\left(\mathbf{x}_t, t\right)\\
-&amp;\text { for training iterations do }\\
-&amp;t \sim \mathcal{U}(0,1) .\\
-&amp;\mathbf{x}_t=\text { Forward diffusion}\\
-&amp;q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) \sim \mathcal{N}\left(\mathbf{x}_t ; \sqrt{\alpha_t} \mathbf{x}_0,\left(1-\alpha_t\right) I\right)\\
-&amp;\zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)=s_\theta\left(\mathbf{x}_t, t\right)-\nabla \log q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) \text {. }\\
-&amp;Y=\sum_{\mathbf{x}_0} q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \text {. }\\
-&amp;\mathcal{L}=\frac{1}{K} \sum\left\|h_\psi\left(\mathbf{x}_t, t\right)-e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \zeta\left(\mathbf{x}_0, \mathbf{x}_t\right) / Y\right\|_2^2 .\\
+&amp;\text { Input: generated data } \mathbf{x}<em>0 \text { in a batch } K \text {, score model }<br />
+&amp;s</em>\theta\left(\mathbf{x}<em>t, t\right) \text { in Section 4.1, energy } \mathcal{E}_0\left(\mathbf{x}_0\right) \text {, force } \nabla</em>{\mathbf{x}<em>0} \mathcal{E}_0\left(\mathbf{x}_0\right) \text {, }<br />
+&amp;\text { intermediate force network } h</em>\psi\left(\mathbf{x}<em>t, t\right)<br />
+&amp;\text { for training iterations do }<br />
+&amp;t \sim \mathcal{U}(0,1) .<br />
+&amp;\mathbf{x}_t=\text { Forward diffusion}<br />
+&amp;q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) \sim \mathcal{N}\left(\mathbf{x}_t ; \sqrt{\alpha_t} \mathbf{x}_0,\left(1-\alpha_t\right) I\right)<br />
+&amp;\zeta\left(\mathbf{x}_0, \mathbf{x}_t\right)=s</em>\theta\left(\mathbf{x}<em>t, t\right)-\nabla \log q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) \text {. }<br />
+&amp;Y=\sum</em>{\mathbf{x}<em>0} q_t\left(\mathbf{x}_t \mid \mathbf{x}_0\right) e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \text {. }<br />
+&amp;\mathcal{L}=\frac{1}{K} \sum\left|h</em>\psi\left(\mathbf{x}_t, t\right)-e^{-k \mathcal{E}_0\left(\mathbf{x}_0\right)} \zeta\left(\mathbf{x}_0, \mathbf{x}_t\right) / Y\right|_2^2 .<br />
 &amp;\min _\psi \mathcal{L} \text {. } \text{end for}.
 \end{aligned}
-\end{equation}\]]]></content><author><name></name></author><category term="AI" /><summary type="html"><![CDATA[This post describes diffusion models with guidance.]]></summary></entry><entry><title type="html">All you need to know about free energy (Part I)</title><link href="https://pkufjh.github.io//blog/2023/free-energy/" rel="alternate" type="text/html" title="All you need to know about free energy (Part I)" /><published>2023-11-07T00:00:00+00:00</published><updated>2023-11-07T00:00:00+00:00</updated><id>https://pkufjh.github.io//blog/2023/free-energy</id><content type="html" xml:base="https://pkufjh.github.io//blog/2023/free-energy/"><![CDATA[<h1 id="fundamental-theory-of-free-energy">Fundamental Theory of Free Energy</h1>
+\end{equation}</p>]]></content><author><name></name></author><category term="AI" /><summary type="html"><![CDATA[This post describes diffusion models with guidance.]]></summary></entry><entry><title type="html">All you need to know about free energy (Part I)</title><link href="https://pkufjh.github.io//blog/2023/free-energy/" rel="alternate" type="text/html" title="All you need to know about free energy (Part I)" /><published>2023-11-07T00:00:00+00:00</published><updated>2023-11-07T00:00:00+00:00</updated><id>https://pkufjh.github.io//blog/2023/free-energy</id><content type="html" xml:base="https://pkufjh.github.io//blog/2023/free-energy/"><![CDATA[<h1 id="fundamental-theory-of-free-energy">Fundamental Theory of Free Energy</h1>
 
 <h2 id="what-is-free-energy">What is Free Energy</h2>
 
@@ -716,41 +716,41 @@ P_{i}^{\mathrm{u}}(\xi)=&amp; P_{i}^{\mathrm{b}}(\xi) \exp \left[\beta \omega_{i
 
 <p>With notation from the article, we define the basis of the lie algebra of \(SO(3)\) group and their matrix representation as follows:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{array}{ll}
 \mathbf{e}_1=\left[\begin{array}{l}
-1 \\
-0 \\
-0 \\
+1 <br />
+0 <br />
+0 <br />
 \end{array}\right] &amp; G_1=\mathbf{e}_1^{\times}=\left[\begin{array}{ccc}
-0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; -1 \\
+0 &amp; 0 &amp; 0 <br />
+0 &amp; 0 &amp; -1 <br />
 0 &amp; 1 &amp; 0
 \end{array}\right]
-\\
-\\
+<br />
+<br />
 \mathbf{e}_2=\left[\begin{array}{l}
-0 \\
-1 \\
+0 <br />
+1 <br />
 0
 \end{array}\right] &amp; G_2=\mathbf{e}_2^{\times}=\left[\begin{array}{ccc}
-0 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 <br />
+0 &amp; 0 &amp; 0 <br />
 -1 &amp; 0 &amp; 0
 \end{array}\right]
-\\
-\\
+<br />
+<br />
 \mathbf{e}_3=\left[\begin{array}{l}
-0 \\
-0 \\
+0 <br />
+0 <br />
 1
 \end{array}\right] &amp; G_3=\mathbf{e}_3^{\times}=\left[\begin{array}{ccc}
-0 &amp; -1 &amp; 0 \\
-1 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 <br />
+1 &amp; 0 &amp; 0 <br />
 0 &amp; 0 &amp; 0
 \end{array}\right]
 \end{array}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of \(SO(3)\) matrix.</p>
 
@@ -769,14 +769,14 @@ P_{i}^{\mathrm{u}}(\xi)=&amp; P_{i}^{\mathrm{b}}(\xi) \exp \left[\beta \omega_{i
 
 <p>\(\textbf{Some important identities}\) (\(\boldsymbol{v}\) is a vector in lie algebra, \(\boldsymbol{v}^{\times}\) is its matrix representation):</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \label{eq:1}
 \begin{aligned}
-\left(\boldsymbol{v}^{\times}\right)^T &amp; =-\boldsymbol{v}^{\times}, \\
-\left(\boldsymbol{v}^{\times}\right)^2 &amp; =\boldsymbol{v} \boldsymbol{v}^T-\boldsymbol{v}^T \boldsymbol{v} \boldsymbol{I}, \\
+\left(\boldsymbol{v}^{\times}\right)^T &amp; =-\boldsymbol{v}^{\times}, <br />
+\left(\boldsymbol{v}^{\times}\right)^2 &amp; =\boldsymbol{v} \boldsymbol{v}^T-\boldsymbol{v}^T \boldsymbol{v} \boldsymbol{I}, <br />
 (\Phi \boldsymbol{v})^{\times} &amp; = \Phi \boldsymbol{v}^{\times} \Phi^T
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Especially the third identities, which will play important roles in the derivation of the score function.</p>
 
@@ -792,9 +792,9 @@ P_{i}^{\mathrm{u}}(\xi)=&amp; P_{i}^{\mathrm{b}}(\xi) \exp \left[\beta \omega_{i
 
 <p>We can represent the \(SO(3)\) matrix in 3D space using axis-angle representation, in explicit terms, it can be written as:</p>
 
-\[\begin{equation}
-\overleftrightarrow{R}_n(\theta)_{i, j}=n_i n_j+\cos \theta \cdot\left(\delta_{i, j}-n_i n_j\right)-\sin \theta \cdot \sum_c \epsilon_{i j k} n_k, \text { here } i, j, k=x, y, z
-\end{equation}\]
+<p>\begin{equation}
+\overleftrightarrow{R}<em>n(\theta)</em>{i, j}=n_i n_j+\cos \theta \cdot\left(\delta_{i, j}-n_i n_j\right)-\sin \theta \cdot \sum_c \epsilon_{i j k} n_k, \text { here } i, j, k=x, y, z
+\end{equation}</p>
 
 <p>Or more simply written using lie algebra matrix:
 \begin{equation}
@@ -822,15 +822,15 @@ where \(\sum_i a_i^2=a_0^2+\boldsymbol{a}^2=1\).</p>
 
 <p>Since the manifold of \(SU(2)\) is \(S^3\), the Haar measure of \(SU(2)\) can be represented as:</p>
 
-\[\begin{equation}
-\mathrm{d} \mu(U)=\delta\Bigg(\sqrt{\sum\nolimits*{i=0}^3 a_i^2}-1\Bigg) \prod*{i=0}^3 \mathrm{~d} a_i
-\end{equation}\]
+<p>\begin{equation}
+\mathrm{d} \mu(U)=\delta\Bigg(\sqrt{\sum\nolimits<em>{i=0}^3 a_i^2}-1\Bigg) \prod</em>{i=0}^3 \mathrm{~d} a_i
+\end{equation}</p>
 
 <p>On the other hand, we can parameterize the 4D coordinates as: \(\left(a_i\right)=r \cdot\left(\cos \frac{\theta}{2}, \sin \frac{\theta}{2}(\sin \vartheta \cos \phi, \sin \vartheta \sin \phi, \cos \vartheta)\right)\), so we can transform the measure in 4D coordinate space into the axis-angle space by computing the jacobian, namely</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \delta(r-1) \cdot\left|\frac{\partial\left(a_0, a_1, a_2, a_3\right)}{\partial(r, \theta, \vartheta, \phi)}\right| \cdot \mathrm{d} r \mathrm{~d} \theta \mathrm{d} \vartheta \mathrm{d} \phi=\frac{1}{2} \sin ^2 \frac{\theta}{2} \sin \vartheta \mathrm{d} \theta \mathrm{d} \vartheta \mathrm{d} \phi = \frac{1}{2} \sin ^2 \frac{\theta}{2} \mathrm{~d} \theta \cdot \mathrm{d}^2 \boldsymbol{n}
-\end{equation}\]
+\end{equation}</p>
 
 <p>From this expression, we can know that in the axis-angle representation of the \(SU(2)\) group, the measure in angle space is proportional to \(\sin ^2 \frac{\theta}{2} = 1 - \cos \theta\), the measure in axis space is constant. Since the axis-angle representation of the \(SU(2)\) group has a two-to-one correspondence to the axis-angle representation of the \(SO(3)\) group with the same angle \(\theta\) and axis \(n\), the measure in the axis-angle representation of the \(SO(3)\) group angle space is also proportional to \(1 - \cos \theta\), and the measure in the axis space is uniform.</p>
 
@@ -838,15 +838,15 @@ where \(\sum_i a_i^2=a_0^2+\boldsymbol{a}^2=1\).</p>
 
 <p>Now we consider the noise adding process in \(SO(3)\) space. Like the random walk in 3D space, we apply small random rotation matrix on an initial matrix iteratively. We generate three small angles from a gaussain distribution, and compose them with Lie algebra matrix to get the rotation matrix. To write it formally,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 r^{(t+1)}=\exp \left\lbrace\sum*{d=1}^3 \epsilon_d G_d\right\rbrace r^t
-\end{equation}\]
+\end{equation}</p>
 
 <p>Specifically, we set the standard deviation of the gaussian noise to be 0.2. After a certain number of steps, we can reach the final matrix of this process, we compute the rotation angle of this final matrix relative to the initial matrix, we can get the overall distribution of the rotation angle, as in the following figure, the left figure is the single step random walk, whose angle distribution corresponds to the so called IGSO3 distribution with the same standard deviation \(\sigma = 0.2\).</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 f(\omega, \sigma)=\frac{1-\cos \omega}{\pi} \sum*{l=0}^{\infty}(2 l+1) e^{-l(l+1) \sigma^2/2} \frac{\sin \left(\left(l+\frac{1}{2}\right) \omega\right)}{\sin (\omega / 2)}
-\end{equation}\]
+\end{equation}</p>
 
 <p>The right figure is the ten steps random walk, whose angle distribution corresponds to the IGSO3 distribution with standard deviation \(\sigma = \sqrt{0.2^2 * 10} = 0.6325\).</p>
 
@@ -936,15 +936,15 @@ where \(\mathbf{\beta_t}\) is sampled from three gaussian distribution with stan
 
 <p>Then the reverse process of this SDE in Lie algebra space is:</p>
 
-\[\begin{equation}
-L_t = L_{t+1} + (\sigma^2_t - \sigma^2_{t-1}) \nabla_{L^{(t)}} \log q\left(L_t \right) +  \sqrt{\sigma^2_t - \sigma^2_{t-1}} \mathbf{\epsilon_t} \cdot \mathbf{G}
-\end{equation}\]
+<p>\begin{equation}
+L_t = L_{t+1} + (\sigma^2<em>t - \sigma^2</em>{t-1}) \nabla_{L^{(t)}} \log q\left(L_t \right) +  \sqrt{\sigma^2<em>t - \sigma^2</em>{t-1}} \mathbf{\epsilon_t} \cdot \mathbf{G}
+\end{equation}</p>
 
 <p>Exponentiate back to the \(SO(3)\) matrix, we have the reverse process in \(SO(3)\) space:</p>
 
-\[\begin{equation}
-r^{(t-1)}=\exp \left\{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \log q\left(r^{(t)}\right)+\sqrt{\sigma_t^2-\sigma_{t-1}^2} \sum_{d=1}^3 \epsilon_d  G_d\right\} r^t,
-\end{equation}\]
+<p>\begin{equation}
+r^{(t-1)}=\exp \left{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \log q\left(r^{(t)}\right)+\sqrt{\sigma_t^2-\sigma_{t-1}^2} \sum_{d=1}^3 \epsilon_d  G_d\right} r^t,
+\end{equation}</p>
 
 <p>where \(q (r^{(t)}\) is the probability density of matrix \(r^{(t)}\) of the marginal distribution in the forward process. Now it is only a matter of calculating the expression \(\nabla_{r^{(t)}} \log q\left(r^{(t)}\right)\), which is also called the score function.</p>
 
@@ -952,40 +952,40 @@ r^{(t-1)}=\exp \left\{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \l
 
 <p>At this stage, if we do not impose model information in the diffusion process, the marginal distribution of \(q(r^{(t)})\) is just the IGSO(3) distribution as a function of the rotation angle, then the score function is the derivative of the function w.r.t the three Lie algebra basis matrices, namely:</p>
 
-\[\begin{equation}
-\nabla*r \log q\left(r^{(t)}\right) =\left.\nabla_r \omega\left( \bar{r}^{\top} r^{(t)} \right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|*{\omega=\omega\left(\bar{r}^{\top} r\right)}
-\end{equation}\]
+<p>\begin{equation}
+\nabla<em>r \log q\left(r^{(t)}\right) =\left.\nabla_r \omega\left( \bar{r}^{\top} r^{(t)} \right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|</em>{\omega=\omega\left(\bar{r}^{\top} r\right)}
+\end{equation}</p>
 
 <p>Note we divide the IGSO3 distribution by the measure in \(SO(3)\) space to get the probability density.</p>
 
 <p>Now we impose model information in the diffusion process. First of all, according to the denoised score matching objective, we can use the conditional score to approximate the true score function:</p>
 
-\[\begin{equation}
-\nabla_r \log q\left(r^{(t)}\right) =\mathbb{E}_q\left[\nabla_{r^{(t)}} \log q\left(r^{(t)} \mid r^{(0)}\right) \mid r^{(t)}\right]
-\end{equation}\]
+<p>\begin{equation}
+\nabla_r \log q\left(r^{(t)}\right) =\mathbb{E}<em>q\left[\nabla</em>{r^{(t)}} \log q\left(r^{(t)} \mid r^{(0)}\right) \mid r^{(t)}\right]
+\end{equation}</p>
 
 <p>In real cases we do not know the distribution of the initial matrix \(r^{(0)}\) given the current observation \(r^{(t)}\). But if we have a trained model such that when observing a noised rotation matrix \(r^{(t)}\), the model will output a single structure \(\hat{r} (t)\) as the ground truth of the denoised structure. Then we can approximate the conditional score by the model prediction:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-\nabla_r \log q\left(r^{(t)}\right) &amp;  \approx \nabla_{r^{(t)}} \log q\left(r^{(t)} \mid r^{(0)}=\hat{r}^{(0)}\right) \\
+\nabla_r \log q\left(r^{(t)}\right) &amp;  \approx \nabla_{r^{(t)}} \log q\left(r^{(t)} \mid r^{(0)}=\hat{r}^{(0)}\right) <br />
 &amp; =\nabla_{r^{(t)}} \log \mathcal{I} \mathcal{G}_{S O(3)}\left(r^{(t)} ; \hat{r}^{(0)}, \sigma_t^2\right),
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Then the score function in \(SO(3)\) space can be written as:</p>
 
-\[\begin{equation}
-\nabla_r \log \mathcal{I} \mathcal{G}_{S O(3)}\left(r ; \hat{r}, \sigma_t^2\right)=\left.\nabla_r \omega\left(\hat{r}^{\top} r\right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|_{\omega=\omega\left(\hat{r}^{\top} r\right)}
-\end{equation}\]
+<p>\begin{equation}
+\nabla_r \log \mathcal{I} \mathcal{G}<em>{S O(3)}\left(r ; \hat{r}, \sigma_t^2\right)=\left.\nabla_r \omega\left(\hat{r}^{\top} r\right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|</em>{\omega=\omega\left(\hat{r}^{\top} r\right)}
+\end{equation}</p>
 
 <p>Note we divide the IGSO3 distribution by the measure in \(SO(3)\) space.</p>
 
 <p>Now the crucial thing to compute is the derivative of the rotation angle with respect to the rotation matrix,namely</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \nabla_r \omega\left(\hat{r}^{\top} r\right)
-\end{equation}\]
+\end{equation}</p>
 
 <p>This is exactly the kind of derivatives defined in eq(\ref{eq:2}), the derivative of a scalar function with respect to a \(SO(3)\) matrix.</p>
 
@@ -1013,30 +1013,30 @@ r^{(t-1)}=\exp \left\{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \l
 
 <p>We proceed with the defintion of “box plus”,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon} &amp; = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} \\
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon} &amp; = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} <br />
 &amp; = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } \hat{r} \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon}
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Now using the third identity in eq(\ref{eq:1}), we have</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon} &amp; = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} \\
-&amp; = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } \hat{r} \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} \\
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon} &amp; = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} <br />
+&amp; = \frac{\omega \left(\hat{r}^{\top} (e^{\mathbf{e}_1 \epsilon } \hat{r} \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon} <br />
 &amp; = \frac{\omega \left(  (e^{ \hat{r}^{\top}  \mathbf{e}_1 \epsilon } \hat{r}^{\top} r ) \right) -\omega (\hat{r}^{\top} r)}{\epsilon}
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Now the crucial point is to compute the rotation angle from the composition of two rotation matrix.</p>
 
 <p>Note that in general, we have the \(\textbf{Baker–Campbell–Hausdorff formula}\):</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 Z= \log[e^X e^Y] = X+Y+\frac{1}{2}[X, Y]+\frac{1}{12}[X,[X, Y]]-\frac{1}{12}[Y,[X, Y]]+\cdots
-\end{equation}\]
+\end{equation}</p>
 
 <p>But since we are dealing with \(SO(3)\) matrix, we have simpler formula, which is called “Rodrigues rotation formula.”</p>
 
@@ -1077,22 +1077,22 @@ So we have the expression for \(\delta \alpha\),
 
 <p>So we finally get the derivative,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  &amp; = \frac{\hat{r}^{\top}_{xx} A_x + \hat{r}^{\top}_{yx} A_y +  \hat{r}^{\top}_{zx} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }} \\
-&amp; = \frac{\hat{r}_{xx} A_x + \hat{r}_{xy} A_y +  \hat{r}_{xz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}<em>1 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  &amp; = \frac{\hat{r}^{\top}</em>{xx} A_x + \hat{r}^{\top}<em>{yx} A_y +  \hat{r}^{\top}</em>{zx} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }} <br />
+&amp; = \frac{\hat{r}<em>{xx} A_x + \hat{r}</em>{xy} A_y +  \hat{r}_{xz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Similarly we get the derivative in other two directions,</p>
 
-\[\begin{equation}
-    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_2 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  = \frac{\hat{r}_{yx} A_x + \hat{r}_{yy} A_y +  \hat{r}_{yz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
-\end{equation}\]
+<p>\begin{equation}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}<em>2 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  = \frac{\hat{r}</em>{yx} A_x + \hat{r}<em>{yy} A_y +  \hat{r}</em>{yz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
+\end{equation}</p>
 
-\[\begin{equation}
-    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}_3 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  = \frac{\hat{r}_{zx} A_x + \hat{r}_{zy} A_y +  \hat{r}_{zz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
-\end{equation}\]
+<p>\begin{equation}
+    \frac{\omega \left(\hat{r}^{\top}\left( r \boxplus\mathbf{e}<em>3 \epsilon\right)\right)-\omega (\hat{r}^{\top} r)}{\epsilon}  = \frac{\hat{r}</em>{zx} A_x + \hat{r}<em>{zy} A_y +  \hat{r}</em>{zz} A_z}{\sqrt{A_x^2 + A_y^2 +A_z^2 }}
+\end{equation}</p>
 
 <p>Write in a compact form, using the identity
 \begin{equation}
@@ -1126,15 +1126,15 @@ print<span class="o">(</span>generate_totp<span class="o">(</span><span class="s
 
 <p>The Lagrangian of the system \(\mathcal{L}\) is extended as:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \mathcal{L}^*(\mathbf{q}, \dot{\mathbf{q}})=\mathcal{L}(\mathbf{q}, \dot{\mathbf{q}})+\sum_{i=1}^r \lambda_i \sigma_i(q)
-\end{equation}\]
+\end{equation}</p>
 
 <p>where the summation is over \(r\) geometric constraints, \(\mathcal{L}^*\) is the Lagrangian for the extended system, and \(\lambda_i\) is a Lagrange multiplier associated with a geometric constraint \(\sigma_i\):</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \sigma_i(q)=\xi_i(q)-\xi_i
-\end{equation}\]
+\end{equation}</p>
 
 <p>with \(\xi_i(q)\) being a geometric parameter and \(\xi_i\) is the value of \(\xi_i(q)\) fixed during the simulation.</p>
 
@@ -1166,60 +1166,62 @@ q_i^{t+\Delta t} &amp; =q_i^t+v_i^{t+\Delta t / 2} \Delta t
 
 <p>The definition for free energy w.r.t some predefined collective varibales (CVs) is:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 A(s)=-k_b \operatorname{Tln} p(s)=-\frac{1}{\beta} \ln \int \frac{1}{Z} e^{-\beta U(r)} \Pi_i \delta\left(s_i(r)-s_i\right) d r
-\end{equation}\]
+\end{equation}</p>
 
 <p>Accordingly, the mean force is the negative gradient of the free energy:</p>
 
-\[\begin{equation}
-- \nabla_{s_i} A(s)= - \frac{1}{\beta Z} \int e^{-\beta U(r)} \nabla_{s_i} \Pi_j \delta\left(s_j(r)-s_j\right) d r
-\end{equation}\]
+<p>\begin{equation}</p>
+<ul>
+  <li>\nabla_{s_i} A(s)= - \frac{1}{\beta Z} \int e^{-\beta U(r)} \nabla_{s_i} \Pi_j \delta\left(s_j(r)-s_j\right) d r
+\end{equation}</li>
+</ul>
 
 <h1 id="mean-force-estimator-for-constrained-md">Mean force estimator for constrained MD</h1>
 
 <p>We show that if there exists \(b_i(r)\), such that:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \label{eq:condition}
 \nabla_r s_i(r) \cdot b_j(r)=\delta_{i j}
-\end{equation}\]
+\end{equation}</p>
 
 <p>then the mean force estimator expression is:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 -\nabla_{s_i} A(s)=\frac{1}{Z} \int e^{-\beta U(r)}\left(-\nabla U(r) \cdot b_i(r)+\frac{1}{\beta} \nabla \cdot b_i(r)\right) \Pi_j \delta\left(s_j(r)-s_j\right) d r
-\end{equation}\]
+\end{equation}</p>
 
 <p>The proof is in the following, from Eq. (\ref{eq:condition}) we can get:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 b_j(r) \cdot \nabla_r \delta\left(s_i(r)-s_i\right)=b_j(r) \cdot \nabla_r\left(s_i(r)\right) \cdot \nabla_{s_i} \delta\left(s_i(r)-s_i\right)=\delta_{i j} \cdot \nabla_{s i} \delta\left(s_i(r)-s_i\right)
-\end{equation}\]
+\end{equation}</p>
 
 <p>Then:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 b_i(r) \cdot \nabla_r \Pi_j \delta\left(s_j(r)-s_j\right)=\nabla_{s_i} \delta\left(s_i(r)-s_i\right) \Pi_{j \neq I} \delta\left(s_j(r)-s_j\right)
-\end{equation}\]
+\end{equation}</p>
 
 <p>So:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-\nabla_{s_i} A(s)&amp; =\frac{1}{\beta Z} \int e^{-\beta U(r)} \nabla_{s_i} \Pi_j \delta\left(s_j(r)-s_j\right) d r=\frac{1}{\beta Z} \int e^{-\beta U(r)} b_i(r) \nabla_r \Pi_j \delta\left(s_j(r)- s_j\right) d r \\
-&amp; =\frac{1}{\beta Z} \int e^{-\beta U(r)}\left(\beta \nabla U(r) \cdot b_i(r)-\nabla \cdot b_i(r)\right) \Pi_j \delta\left(s_j(r)-s_j\right) d r \\
+\nabla_{s_i} A(s)&amp; =\frac{1}{\beta Z} \int e^{-\beta U(r)} \nabla_{s_i} \Pi_j \delta\left(s_j(r)-s_j\right) d r=\frac{1}{\beta Z} \int e^{-\beta U(r)} b_i(r) \nabla_r \Pi_j \delta\left(s_j(r)- s_j\right) d r <br />
+&amp; =\frac{1}{\beta Z} \int e^{-\beta U(r)}\left(\beta \nabla U(r) \cdot b_i(r)-\nabla \cdot b_i(r)\right) \Pi_j \delta\left(s_j(r)-s_j\right) d r <br />
 &amp; =&lt;\nabla U(r) \cdot b_i(r)-\frac{1}{\beta} \nabla \cdot b_i(r)&gt;_{\text {cond }}
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>So:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-&amp; f_i=-\nabla_{s_i} A(s)=&lt;-\nabla U(r) \cdot b_i(r)+\frac{1}{\beta} \nabla \cdot b_i(r)&gt;_{\text {cond }}=&lt;f(r) \cdot b_i(r)+\frac{1}{\beta} \nabla b_i(r)&gt;_{\text {cond }}
+&amp; f_i=-\nabla_{s_i} A(s)=&lt;-\nabla U(r) \cdot b_i(r)+\frac{1}{\beta} \nabla \cdot b_i(r)&gt;<em>{\text {cond }}=&lt;f(r) \cdot b_i(r)+\frac{1}{\beta} \nabla b_i(r)&gt;</em>{\text {cond }}
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>This mean force average, like any other observables, however, is not the same with the
 “average” taken from a “constrained md” trajectory. A one sentence explanation is: The dynamics of constrianed MD is non-Hamiltonian, namely the equation of motion of constrained MD does not preserve volume element due to the non-zero “compressibility”, so we have to take a factor into the “conditional average”, to get the “constrained MD average”.</p>
@@ -1228,76 +1230,76 @@ b_i(r) \cdot \nabla_r \Pi_j \delta\left(s_j(r)-s_j\right)=\nabla_{s_i} \delta\le
 
 <p>To see this more clearly, we have to go back to the definition of constrained MD. The equation of motion for constrained MD is,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{aligned}
-\dot{x_j} &amp; =M^{-1} p_j \\
+\dot{x_j} &amp; =M^{-1} p_j <br />
 \dot{p_j} &amp; =-\frac{\partial V}{\partial x_j}+\frac{\partial \sigma}{\partial x_j} \lambda(x, p)
 \end{aligned}
-\end{equation}\]
+\end{equation}</p>
 
 <p>The mass matrix is diagonal in general, so I do not write lower index. From theoretical mechanics, it is easy to see that the evolution of the jacabian in phase space is,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
      \frac{d J}{d t}=J\left(\partial_j \dot{\xi}^j\right)
-\end{equation}\]
+\end{equation}</p>
 
 <p>So if we define “compressibility” to be:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \kappa=\partial_j \dot{\xi}^j
-\end{equation}\]
+\end{equation}</p>
 
 <p>Then the evolution of the jacobian is:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 J(\xi(t) ; \xi(0))=\exp \left(\int_0^t d s \kappa(\xi(s))\right)=\exp (W(\xi(t))-W(\xi(0))
-\end{equation}\]
+\end{equation}</p>
 
 <p>If we define a “metric factor”:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \sqrt{g(t)} \equiv e^{-W(\xi(t))}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Then we can still get a constant “volume element”:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \sqrt{g(t)} d^{2 n} \xi(t)=\sqrt{g(0)} d^{2 n} \xi(0)
-\end{equation}\]
+\end{equation}</p>
 
 <p>This is equivalent to bring the metric factor into the “conditonal average”, namely,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \langle\mathcal{O}(\mathbf{r})\rangle_s^{\text {constr }}=\frac{\int \mathrm{d} \mathbf{r} \mathrm{e}^{-\beta U(\mathbf{r})} z^{1 / 2}(\mathbf{r}) \mathcal{O}(\mathbf{r}) \delta\left(f_1(\mathbf{r})-s\right)}{\left\langle z^{1 / 2}(\mathbf{r}) \delta\left(f_1(\mathbf{r})-s\right)\right\rangle}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Rememble the “conditional average” is,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \langle\mathcal{O}(\mathbf{r})\rangle_s^{\text {cond }}=\frac{\int \mathrm{dre}^{-\beta U(\mathbf{r})} \mathcal{O}(\mathbf{r}) \delta\left(f_1(\mathbf{r})-s\right)}{\left\langle\delta\left(f_1(\mathbf{r})-s\right)\right\rangle}
-\end{equation}\]
+\end{equation}</p>
 
 <p>So if we would like to use the trajectory from constrained MD to estimate mean force in the
 conditional average expression, we have to bring a metrix factor in, namely,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \langle\mathcal{O}(\mathbf{r})\rangle_s^{\text {cond }}=\frac{\left\langle z^{-1 / 2}(\mathbf{r}) \mathcal{O}(\mathbf{r})\right\rangle_s^{\text {constr }}}{\left\langle z^{-1 / 2}(\mathbf{r})\right\rangle_s^{\text {constr }}}
-\end{equation}\]
+\end{equation}</p>
 
 <h1 id="phase-factor">Phase factor</h1>
 
 <p>Then it is a matter of calculating the phase factor (metric factor ) in constrained MD.
 From the analysis of the previous section, to calculate the metric factor we need to calculate,</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \partial_j \dot{\xi}^j \text {, where } \xi^j=\left(q^j, p^j\right) \text {. }
-\end{equation}\]
+\end{equation}</p>
 
 <p>From the equation of motion, this amounts to calculate \(\partial_{p_i} \frac{\partial \sigma}{\partial x_i} \lambda (x,p)\)
 I first give the answer and will write the derivation later. The phase factor equals:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 z^{1 / 2}=\left(\operatorname{det}\left[\frac{\partial \sigma_m}{\partial x_j} M^{-1} \frac{\partial \sigma_n}{\partial x_j}\right]\right)^{1 / 2}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Where \(\sigma_m\) is the mth constraints exerted on the system.</p>]]></content><author><name></name></author><category term="Physics" /><summary type="html"><![CDATA[This post describe the formulation of the constrained MD mean force estimator.]]></summary></entry></feed>
