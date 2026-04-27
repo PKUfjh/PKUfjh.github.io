@@ -8,7 +8,7 @@ on:
 jobs:
   check-links-on-site:
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-a-workflow-based-on-the-conclusion-of-another-workflow
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' }}
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
@@ -19,6 +19,17 @@ jobs:
         with:
           ruby-version: "3.2.2"
           bundler-cache: true
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: pip
+          cache-dependency-path: .github/requirements-ci.txt
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
@@ -31,13 +42,13 @@ jobs:
             }
       - name: Install and Build 🔧
         run: |
-          pip3 install --upgrade jupyter
+          pip3 install -r .github/requirements-ci.txt
           export JEKYLL_ENV=production
           bundle exec jekyll build
       - name: Purge unused CSS 🧹
         run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
+          npm ci
+          npx purgecss -c purgecss.config.js
       - name: Link Checker 🔗
         uses: lycheeverse/lychee-action@v1.9.0
         with:
