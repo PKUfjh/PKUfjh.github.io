@@ -49,6 +49,6 @@ jobs:
         with:
           fail: true
           # Only check source files that become part of the deployed site.
-          # Repository docs and template/example files contain many external links
-          # that are unrelated to the live homepage and create noisy failures.
-          args: --user-agent 'curl/7.54' --verbose --no-progress './_pages/**/*.md' './_posts/**/*.md' './_news/**/*.md' './_projects/**/*.md'
+          # Some bundled template/example pages contain liquid placeholders or
+          # external redirects that create noisy failures in source-only checks.
+          args: --user-agent 'curl/7.54' --exclude-path _pages/blog.md --exclude-path _projects/3_project.md --verbose --no-progress './_pages/**/*.md' './_posts/**/*.md' './_news/**/*.md' './_projects/**/*.md'
