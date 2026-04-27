@@ -734,6 +734,15 @@ If you found this useful, please cite this as:
     <script type="text/javascript">
       window.MathJax = {
         tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+          displayMath: [
+            ['$$', '$$'],
+            ['\\[', '\\]'],
+          ],
+          processEscapes: true,
           tags: 'ams',
         },
       };

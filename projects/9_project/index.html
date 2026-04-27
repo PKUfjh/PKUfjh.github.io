@@ -615,6 +615,15 @@ Here’s the code for the last row of images above:</p>
     <script type="text/javascript">
       window.MathJax = {
         tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+          displayMath: [
+            ['$$', '$$'],
+            ['\\[', '\\]'],
+          ],
+          processEscapes: true,
           tags: 'ams',
         },
       };
