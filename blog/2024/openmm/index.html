@@ -503,11 +503,13 @@
 
 <p>Runs the simulation for the specified total number of steps (total_steps), performing 100 steps in each iteration of the loop. Let’s discuss the form of the energy function, it can be written as:</p>
 
-\[E(r) =
+\[\begin{equation}
+E(r) =
 \begin{cases}
 4.184 \left( a_1 r^3 + a_2 r^2 + a_3 r + a_4 \right) &amp; \text{for } r \leq 0.35 \\
 4.184 \left( b_1 r^3 + b_2 r^2 + b_3 r + b_4 \right) &amp; \text{for } r &gt; 0.35
-\end{cases}\]
+\end{cases}
+\end{equation}\]
 
 <p>Different parameters define different values of a and b. (1kcal = 4.184kj)</p>
 
@@ -515,7 +517,8 @@
 
 <p>OpenMM uses the following units:</p>
 
-\[\begin{array}{|l|l|}
+\[\begin{equation}
+\begin{array}{|l|l|}
 \hline \text { Quantity } &amp; \text { Units } \\
 \hline \text { distance } &amp; \mathrm{nm} \\
 \hline \text { time } &amp; \mathrm{ps} \\
@@ -525,7 +528,8 @@
 \hline \text { angle } &amp; \text { radians } \\
 \hline \text { energy } &amp; \mathrm{kJ} / \mathrm{mol} \\
 \hline
-\end{array}\]
+\end{array}
+\end{equation}\]
 
 <p>An atomic mass unit is equal to 1/12 the mass of a single atom of carbon-12.</p>
 
@@ -533,7 +537,9 @@
 
 <p>The langevin integrator is:</p>
 
-\[m_i \frac{d \mathbf{v}\_i}{d t}=\mathbf{f}\_i-\gamma m_i \mathbf{v}\_i+\mathbf{R}\_i\]
+\[\begin{equation}
+m_i \frac{d \mathbf{v}\_i}{d t}=\mathbf{f}\_i-\gamma m_i \mathbf{v}\_i+\mathbf{R}\_i
+\end{equation}\]
 
 <p>In OpenMM the langevin integrator can be defined in the class <code class="language-plaintext highlighter-rouge">LangevinIntegrator</code>, where three parameters can be specified in the initialization (temperature, frictionCoeff and stepsize) like:</p>
 
