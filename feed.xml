@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://pkufjh.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://pkufjh.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-28T03:28:44+00:00</updated><id>https://pkufjh.github.io//feed.xml</id><title type="html">Jiahao Fan</title><subtitle>Jiahao Fan is a researcher at Peking University and AI for Science Institute, Beijing (AISI), working on AI for Science, generative modeling, LLM for science, and computational biology.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://pkufjh.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://pkufjh.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-28T03:33:09+00:00</updated><id>https://pkufjh.github.io//feed.xml</id><title type="html">Jiahao Fan</title><subtitle>Jiahao Fan is a researcher at Peking University and AI for Science Institute, Beijing (AISI), working on AI for Science, generative modeling, LLM for science, and computational biology.
 </subtitle><entry><title type="html">OpenMM python package</title><link href="https://pkufjh.github.io//blog/2024/openmm/" rel="alternate" type="text/html" title="OpenMM python package" /><published>2024-07-22T00:00:00+00:00</published><updated>2024-07-22T00:00:00+00:00</updated><id>https://pkufjh.github.io//blog/2024/openmm</id><content type="html" xml:base="https://pkufjh.github.io//blog/2024/openmm/"><![CDATA[<h1 id="example">Example</h1>
 
 <p>We start by providing an example. Here is a python function script:</p>
@@ -702,57 +702,49 @@ P_{i}^{\mathrm{u}}(\xi)=&amp; P_{i}^{\mathrm{b}}(\xi) \exp \left[\beta \omega_{i
 <p>With notation from the article, we define the basis of the lie algebra of \(SO(3)\) group and their matrix representation as follows:</p>
 
 <p>\begin{equation}
+\begin{gathered}
 \mathbf{e}_1 =
 \begin{bmatrix}
 1 <br />
 0 <br />
 0
-\end{bmatrix}
-\end{equation}</p>
-
-<p>\begin{equation}
+\end{bmatrix},
+\qquad
 G_1=\mathbf{e}_1^{\times} =
 \begin{bmatrix}
 0 &amp; 0 &amp; 0 <br />
 0 &amp; 0 &amp; -1 <br />
 0 &amp; 1 &amp; 0
 \end{bmatrix}
-\end{equation}</p>
-
-<p>\begin{equation}
+\[0.8em]
 \mathbf{e}_2 =
 \begin{bmatrix}
 0 <br />
 1 <br />
 0
-\end{bmatrix}
-\end{equation}</p>
-
-<p>\begin{equation}
+\end{bmatrix},
+\qquad
 G_2=\mathbf{e}_2^{\times} =
 \begin{bmatrix}
 0 &amp; 0 &amp; 1 <br />
 0 &amp; 0 &amp; 0 <br />
 -1 &amp; 0 &amp; 0
 \end{bmatrix}
-\end{equation}</p>
-
-<p>\begin{equation}
+\[0.8em]
 \mathbf{e}_3 =
 \begin{bmatrix}
 0 <br />
 0 <br />
 1
-\end{bmatrix}
-\end{equation}</p>
-
-<p>\begin{equation}
+\end{bmatrix},
+\qquad
 G_3=\mathbf{e}_3^{\times} =
 \begin{bmatrix}
 0 &amp; -1 &amp; 0 <br />
 1 &amp; 0 &amp; 0 <br />
 0 &amp; 0 &amp; 0
 \end{bmatrix}
+\end{gathered}
 \end{equation}</p>
 
 <p>Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of \(SO(3)\) matrix.</p>
