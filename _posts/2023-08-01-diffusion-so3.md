@@ -20,57 +20,49 @@ In this note, we do not always distinguish "group" and "representation of group"
 With notation from the article, we define the basis of the lie algebra of $$SO(3)$$ group and their matrix representation as follows:
 
 \begin{equation}
+\begin{gathered}
 \mathbf{e}_1 =
 \begin{bmatrix}
 1 \\
 0 \\
 0
-\end{bmatrix}
-\end{equation}
-
-\begin{equation}
+\end{bmatrix},
+\qquad
 G_1=\mathbf{e}_1^{\times} =
 \begin{bmatrix}
 0 & 0 & 0 \\
 0 & 0 & -1 \\
 0 & 1 & 0
 \end{bmatrix}
-\end{equation}
-
-\begin{equation}
+\\[0.8em]
 \mathbf{e}_2 =
 \begin{bmatrix}
 0 \\
 1 \\
 0
-\end{bmatrix}
-\end{equation}
-
-\begin{equation}
+\end{bmatrix},
+\qquad
 G_2=\mathbf{e}_2^{\times} =
 \begin{bmatrix}
 0 & 0 & 1 \\
 0 & 0 & 0 \\
 -1 & 0 & 0
 \end{bmatrix}
-\end{equation}
-
-\begin{equation}
+\\[0.8em]
 \mathbf{e}_3 =
 \begin{bmatrix}
 0 \\
 0 \\
 1
-\end{bmatrix}
-\end{equation}
-
-\begin{equation}
+\end{bmatrix},
+\qquad
 G_3=\mathbf{e}_3^{\times} =
 \begin{bmatrix}
 0 & -1 & 0 \\
 1 & 0 & 0 \\
 0 & 0 & 0
 \end{bmatrix}
+\end{gathered}
 \end{equation}
 
 Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of $$SO(3)$$ matrix.
