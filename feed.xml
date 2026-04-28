@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://pkufjh.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://pkufjh.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-28T02:23:11+00:00</updated><id>https://pkufjh.github.io//feed.xml</id><title type="html">Jiahao Fan</title><subtitle>Jiahao Fan is a researcher at Peking University and AI for Science Institute, Beijing (AISI), working on AI for Science, generative modeling, LLM for science, and computational biology.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://pkufjh.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://pkufjh.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2026-04-28T02:26:40+00:00</updated><id>https://pkufjh.github.io//feed.xml</id><title type="html">Jiahao Fan</title><subtitle>Jiahao Fan is a researcher at Peking University and AI for Science Institute, Beijing (AISI), working on AI for Science, generative modeling, LLM for science, and computational biology.
 </subtitle><entry><title type="html">OpenMM python package</title><link href="https://pkufjh.github.io//blog/2024/openmm/" rel="alternate" type="text/html" title="OpenMM python package" /><published>2024-07-22T00:00:00+00:00</published><updated>2024-07-22T00:00:00+00:00</updated><id>https://pkufjh.github.io//blog/2024/openmm</id><content type="html" xml:base="https://pkufjh.github.io//blog/2024/openmm/"><![CDATA[<h1 id="example">Example</h1>
 
 <p>We start by providing an example. Here is a python function script:</p>
@@ -162,7 +162,7 @@ E(r) =
 <p>The langevin integrator is:</p>
 
 \[\begin{equation}
-m_i \frac{d \mathbf{v}\_i}{d t}=\mathbf{f}\_i-\gamma m_i \mathbf{v}\_i+\mathbf{R}\_i
+m_i \frac{d \mathbf{v}_i}{d t}=\mathbf{f}_i-\gamma m_i \mathbf{v}_i+\mathbf{R}_i
 \end{equation}\]
 
 <p>In OpenMM the langevin integrator can be defined in the class <code class="language-plaintext highlighter-rouge">LangevinIntegrator</code>, where three parameters can be specified in the initialization (temperature, frictionCoeff and stepsize) like:</p>
@@ -662,7 +662,7 @@ mathcal{A}}\left(\mathbf{r}_1, \ldots, \mathbf{r}_N\right)\right)}\right\rangle_
 
 <p>On the other hand, in umbrella sampling, the system evolves under the total potential energy function \(E^{\mathrm{b}}(r)\) with the bias potential added. The real question in umbrella sampling is: how can we use the trajectories under the bias potential to calculate the equilibrium free energy? To achieve this, we try to use the bias potential to express the equilibrium free energy. First, we can write the probability distribution of the collective variable \(\xi(r)\) under the bias potential:</p>
 
-\[P*{i}^{\mathrm{b}}(\xi)=\frac{\int \exp \left\{-\beta\left[E(r)+\omega*{i}\left(\xi(r)\right)\right]\right\} \delta\left[\xi(r)-\xi\right] d^{N}{r}}{\int \exp \left\{-\beta\left[E(r)+\omega_{i}\left(\xi(r)\right)\right]\right\} d^{N}{r}}\]
+\[P_{i}^{\mathrm{b}}(\xi)=\frac{\int \exp \left\{-\beta\left[E(r)+\omega_{i}\left(\xi(r)\right)\right]\right\} \delta\left[\xi(r)-\xi\right] d^{N}{r}}{\int \exp \left\{-\beta\left[E(r)+\omega_{i}\left(\xi(r)\right)\right]\right\} d^{N}{r}}\]
 
 <p>Therefore, we can express the equilibrium probability distribution using the bias probability distribution:</p>
 
@@ -783,7 +783,7 @@ P_{i}^{\mathrm{u}}(\xi)=&amp; P_{i}^{\mathrm{b}}(\xi) \exp \left[\beta \omega_{i
 <p>With these definitions, we can define the derivative of a scalar function with argument to be \(SO(3)\) matrix,
 \begin{equation}
 \label{eq:2}
-\frac{\partial f*3}{\partial \Phi}=\lim *{\epsilon \rightarrow 0}\left[\begin{array}{l}
+\frac{\partial f_3}{\partial \Phi}=\lim _{\epsilon \rightarrow 0}\left[\begin{array}{l}
 \frac{f_3\left(\Phi \boxplus\left(\mathbf{e}_1 \epsilon\right)\right)-f_3(\Phi)}{\epsilon} <br />
 \frac{f_3\left(\Phi \boxplus\left(\mathbf{e}_2 \epsilon\right)\right)-f_3(\Phi)}{\epsilon} <br />
 \frac{f_3\left(\Phi \boxplus\left(\mathbf{e}_3 \epsilon\right)\right)-f_3(\Phi)}{\epsilon}
@@ -823,7 +823,7 @@ where \(\sum_i a_i^2=a_0^2+\boldsymbol{a}^2=1\).</p>
 <p>Since the manifold of \(SU(2)\) is \(S^3\), the Haar measure of \(SU(2)\) can be represented as:</p>
 
 \[\begin{equation}
-\mathrm{d} \mu(U)=\delta\Bigg(\sqrt{\sum\nolimits*{i=0}^3 a_i^2}-1\Bigg) \prod*{i=0}^3 \mathrm{~d} a_i
+\mathrm{d} \mu(U)=\delta\Bigg(\sqrt{\sum\nolimits_{i=0}^3 a_i^2}-1\Bigg) \prod_{i=0}^3 \mathrm{~d} a_i
 \end{equation}\]
 
 <p>On the other hand, we can parameterize the 4D coordinates as: \(\left(a_i\right)=r \cdot\left(\cos \frac{\theta}{2}, \sin \frac{\theta}{2}(\sin \vartheta \cos \phi, \sin \vartheta \sin \phi, \cos \vartheta)\right)\), so we can transform the measure in 4D coordinate space into the axis-angle space by computing the jacobian, namely</p>
@@ -839,13 +839,13 @@ where \(\sum_i a_i^2=a_0^2+\boldsymbol{a}^2=1\).</p>
 <p>Now we consider the noise adding process in \(SO(3)\) space. Like the random walk in 3D space, we apply small random rotation matrix on an initial matrix iteratively. We generate three small angles from a gaussain distribution, and compose them with Lie algebra matrix to get the rotation matrix. To write it formally,</p>
 
 \[\begin{equation}
-r^{(t+1)}=\exp \left\lbrace\sum*{d=1}^3 \epsilon_d G_d\right\rbrace r^t
+r^{(t+1)}=\exp \left\lbrace\sum_{d=1}^3 \epsilon_d G_d\right\rbrace r^t
 \end{equation}\]
 
 <p>Specifically, we set the standard deviation of the gaussian noise to be 0.2. After a certain number of steps, we can reach the final matrix of this process, we compute the rotation angle of this final matrix relative to the initial matrix, we can get the overall distribution of the rotation angle, as in the following figure, the left figure is the single step random walk, whose angle distribution corresponds to the so called IGSO3 distribution with the same standard deviation \(\sigma = 0.2\).</p>
 
 \[\begin{equation}
-f(\omega, \sigma)=\frac{1-\cos \omega}{\pi} \sum*{l=0}^{\infty}(2 l+1) e^{-l(l+1) \sigma^2/2} \frac{\sin \left(\left(l+\frac{1}{2}\right) \omega\right)}{\sin (\omega / 2)}
+f(\omega, \sigma)=\frac{1-\cos \omega}{\pi} \sum_{l=0}^{\infty}(2 l+1) e^{-l(l+1) \sigma^2/2} \frac{\sin \left(\left(l+\frac{1}{2}\right) \omega\right)}{\sin (\omega / 2)}
 \end{equation}\]
 
 <p>The right figure is the ten steps random walk, whose angle distribution corresponds to the IGSO3 distribution with standard deviation \(\sigma = \sqrt{0.2^2 * 10} = 0.6325\).</p>
@@ -906,15 +906,15 @@ Note that in the limit of \(\sigma \rightarrow \infty\), the function \(f(\omega
 
 <p>Since the marginal distribution of the random walk in \(SO(3)\) space is IGSO(3) distribution, we can simulate the forward process in \(SO(3)\) space by directly sampling angles from IGSO(3) distribution with a certain value of \(\sigma\), then sample an axis from an uniform distribution, then apply this random matrix upon the initial matrix. To write it formally:
 \begin{equation}
-r^t=e^{\theta_t \textbf{n}} r^0
+r^t=e^{\theta_t \mathbf{n}} r^0
 \end{equation}
-where \(\theta_t\) is sampled from the IGSO(3) distribution with standard deviation \(\sigma_t\), and \(\textbf{n}\) is a 3D vector sampled from the uniform distribution.</p>
+where \(\theta_t\) is sampled from the IGSO(3) distribution with standard deviation \(\sigma_t\), and \(\mathbf{n}\) is a 3D vector sampled from the uniform distribution.</p>
 
 <p>With the addition theorem for the noise adding process, the matrices corresponding the neighboring distribution can be related by:
 \begin{equation}
-r^t=e^{\beta*t \textbf{n}} r^{t-1}
+r^t=e^{\beta_t \mathbf{n}} r^{t-1}
 \end{equation}
-where \(\beta_t\) is sampled from the IGSO(3) distribution with standard deviation \(\sqrt{\sigma^2_t - \sigma^2*{t-1}}\), and \(\textbf{n}\) is a 3D vector sampled from the uniform distribution.</p>
+where \(\beta_t\) is sampled from the IGSO(3) distribution with standard deviation \(\sqrt{\sigma^2_t - \sigma^2_{t-1}}\), and \(\mathbf{n}\) is a 3D vector sampled from the uniform distribution.</p>
 
 <h1 id="backward-process-in-so3-space">Backward process in SO(3) space</h1>
 
@@ -930,9 +930,9 @@ Note that this formulation is in Euclidean space, in \(SO(3)\) case, we have to 
 
 <p>To write it more explicitly, we can write the random walk in Lie algebra space as:
 \begin{equation}
-L*{t+1} = L_t + \mathbf{\beta_t} \cdot \mathbf{G}
+L_{t+1} = L_t + \mathbf{\beta_t} \cdot \mathbf{G}
 \end{equation}
-where \(\mathbf{\beta_t}\) is sampled from three gaussian distribution with standard deviation \(\sqrt{\sigma^2_t - \sigma^2*{t-1}}\), \(\mathbf{G}\) is the Three Lie algebra matrix.</p>
+where \(\mathbf{\beta_t}\) is sampled from three gaussian distribution with standard deviation \(\sqrt{\sigma^2_t - \sigma^2_{t-1}}\), \(\mathbf{G}\) is the Three Lie algebra matrix.</p>
 
 <p>Then the reverse process of this SDE in Lie algebra space is:</p>
 
@@ -946,14 +946,14 @@ L_t = L_{t+1} + (\sigma^2_t - \sigma^2_{t-1}) \nabla_{L^{(t)}} \log q\left(L_t \
 r^{(t-1)}=\exp \left\{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \log q\left(r^{(t)}\right)+\sqrt{\sigma_t^2-\sigma_{t-1}^2} \sum_{d=1}^3 \epsilon_d  G_d\right\} r^t,
 \end{equation}\]
 
-<p>where \(q (r^{(t)}\) is the probability density of matrix \(r^{(t)}\) of the marginal distribution in the forward process. Now it is only a matter of calculating the expression \(\nabla_{r^{(t)}} \log q\left(r^{(t)}\right)\), which is also called the score function.</p>
+<p>where \(q(r^{(t)})\) is the probability density of matrix \(r^{(t)}\) of the marginal distribution in the forward process. Now it is only a matter of calculating the expression \(\nabla_{r^{(t)}} \log q\left(r^{(t)}\right)\), which is also called the score function.</p>
 
 <h1 id="score-function-in-so3-space-with-trained-model">Score function in \(SO(3)\) space with trained model</h1>
 
 <p>At this stage, if we do not impose model information in the diffusion process, the marginal distribution of \(q(r^{(t)})\) is just the IGSO(3) distribution as a function of the rotation angle, then the score function is the derivative of the function w.r.t the three Lie algebra basis matrices, namely:</p>
 
 \[\begin{equation}
-\nabla*r \log q\left(r^{(t)}\right) =\left.\nabla_r \omega\left( \bar{r}^{\top} r^{(t)} \right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|*{\omega=\omega\left(\bar{r}^{\top} r\right)}
+\nabla_r \log q\left(r^{(t)}\right) =\left.\nabla_r \omega\left( \bar{r}^{\top} r^{(t)} \right) \frac{d}{d \omega} [ \log \frac{ f\left(\omega ; \sigma_t^2\right) } { 1 - \cos \omega} ] \right|_{\omega=\omega\left(\bar{r}^{\top} r\right)}
 \end{equation}\]
 
 <p>Note we divide the IGSO3 distribution by the measure in \(SO(3)\) space to get the probability density.</p>
