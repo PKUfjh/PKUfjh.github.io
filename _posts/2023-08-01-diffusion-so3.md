@@ -20,39 +20,49 @@ In this note, we do not always distinguish "group" and "representation of group"
 With notation from the article, we define the basis of the lie algebra of $$SO(3)$$ group and their matrix representation as follows:
 
 \begin{equation}
-\begin{array}{ll}
-\mathbf{e}_1=\left[\begin{array}{l}
+\begin{aligned}
+\mathbf{e}_1 &=
+\begin{bmatrix}
 1 \\
 0 \\
-0 \\
-\end{array}\right] & G_1=\mathbf{e}_1^{\times}=\left[\begin{array}{ccc}
+0
+\end{bmatrix},
+&
+G_1=\mathbf{e}_1^{\times} &=
+\begin{bmatrix}
 0 & 0 & 0 \\
 0 & 0 & -1 \\
 0 & 1 & 0
-\end{array}\right]
-\\
-\\
-\mathbf{e}_2=\left[\begin{array}{l}
+\end{bmatrix},
+\\[1.2em]
+\mathbf{e}_2 &=
+\begin{bmatrix}
 0 \\
 1 \\
 0
-\end{array}\right] & G_2=\mathbf{e}_2^{\times}=\left[\begin{array}{ccc}
+\end{bmatrix},
+&
+G_2=\mathbf{e}_2^{\times} &=
+\begin{bmatrix}
 0 & 0 & 1 \\
 0 & 0 & 0 \\
 -1 & 0 & 0
-\end{array}\right]
-\\
-\\
-\mathbf{e}_3=\left[\begin{array}{l}
+\end{bmatrix},
+\\[1.2em]
+\mathbf{e}_3 &=
+\begin{bmatrix}
 0 \\
 0 \\
 1
-\end{array}\right] & G_3=\mathbf{e}_3^{\times}=\left[\begin{array}{ccc}
+\end{bmatrix},
+&
+G_3=\mathbf{e}_3^{\times} &=
+\begin{bmatrix}
 0 & -1 & 0 \\
 1 & 0 & 0 \\
 0 & 0 & 0
-\end{array}\right]
-\end{array}
+\end{bmatrix}.
+\end{aligned}
 \end{equation}
 
 Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of $$SO(3)$$ matrix.
@@ -144,7 +154,7 @@ From another point of view, the prior distribution in the rotation angle space i
 Now we consider the noise adding process in $$SO(3)$$ space. Like the random walk in 3D space, we apply small random rotation matrix on an initial matrix iteratively. We generate three small angles from a gaussain distribution, and compose them with Lie algebra matrix to get the rotation matrix. To write it formally,
 
 \begin{equation}
-r^{(t+1)}=\exp \left\lbrace\sum_{d=1}^3 \epsilon_d G_d\right\rbrace r^t
+r^{(t+1)}=\exp\Big(\sum_{d=1}^3 \epsilon_d G_d\Big) r^t
 \end{equation}
 
 Specifically, we set the standard deviation of the gaussian noise to be 0.2. After a certain number of steps, we can reach the final matrix of this process, we compute the rotation angle of this final matrix relative to the initial matrix, we can get the overall distribution of the rotation angle, as in the following figure, the left figure is the single step random walk, whose angle distribution corresponds to the so called IGSO3 distribution with the same standard deviation $$\sigma = 0.2$$.
@@ -214,7 +224,7 @@ L_t = L_{t+1} + (\sigma^2_t - \sigma^2_{t-1}) \nabla_{L^{(t)}} \log q\left(L_t \
 Exponentiate back to the $$SO(3)$$ matrix, we have the reverse process in $$SO(3)$$ space:
 
 \begin{equation}
-r^{(t-1)}=\exp \left\{\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \log q\left(r^{(t)}\right)+\sqrt{\sigma_t^2-\sigma_{t-1}^2} \sum_{d=1}^3 \epsilon_d  G_d\right\} r^t,
+r^{(t-1)}=\exp\Big(\left(\sigma_t^2-\sigma_{t-1}^2\right) \nabla_{r^{(t)}} \log q\left(r^{(t)}\right)+\sqrt{\sigma_t^2-\sigma_{t-1}^2} \sum_{d=1}^3 \epsilon_d G_d\Big) r^t,
 \end{equation}
 
 where $$q(r^{(t)})$$ is the probability density of matrix $$r^{(t)}$$ of the marginal distribution in the forward process. Now it is only a matter of calculating the expression $$\nabla_{r^{(t)}} \log q\left(r^{(t)}\right)$$, which is also called the score function.
