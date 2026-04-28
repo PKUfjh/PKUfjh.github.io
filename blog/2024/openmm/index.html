@@ -503,13 +503,13 @@
 
 <p>Runs the simulation for the specified total number of steps (total_steps), performing 100 steps in each iteration of the loop. Let’s discuss the form of the energy function, it can be written as:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 E(r) =
 \begin{cases}
-4.184 \left( a_1 r^3 + a_2 r^2 + a_3 r + a_4 \right) &amp; \text{for } r \leq 0.35 \\
+4.184 \left( a_1 r^3 + a_2 r^2 + a_3 r + a_4 \right) &amp; \text{for } r \leq 0.35 <br>
 4.184 \left( b_1 r^3 + b_2 r^2 + b_3 r + b_4 \right) &amp; \text{for } r &gt; 0.35
 \end{cases}
-\end{equation}\]
+\end{equation}</p>
 
 <p>Different parameters define different values of a and b. (1kcal = 4.184kj)</p>
 
@@ -517,19 +517,19 @@ E(r) =
 
 <p>OpenMM uses the following units:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 \begin{array}{|l|l|}
-\hline \text { Quantity } &amp; \text { Units } \\
-\hline \text { distance } &amp; \mathrm{nm} \\
-\hline \text { time } &amp; \mathrm{ps} \\
-\hline \text { mass } &amp; \text { atomic mass units } \\
-\hline \text { charge } &amp; \text { proton charge } \\
-\hline \text { temperature } &amp; \text { Kelvin } \\
-\hline \text { angle } &amp; \text { radians } \\
-\hline \text { energy } &amp; \mathrm{kJ} / \mathrm{mol} \\
+\hline \text { Quantity } &amp; \text { Units } <br>
+\hline \text { distance } &amp; \mathrm{nm} <br>
+\hline \text { time } &amp; \mathrm{ps} <br>
+\hline \text { mass } &amp; \text { atomic mass units } <br>
+\hline \text { charge } &amp; \text { proton charge } <br>
+\hline \text { temperature } &amp; \text { Kelvin } <br>
+\hline \text { angle } &amp; \text { radians } <br>
+\hline \text { energy } &amp; \mathrm{kJ} / \mathrm{mol} <br>
 \hline
 \end{array}
-\end{equation}\]
+\end{equation}</p>
 
 <p>An atomic mass unit is equal to 1/12 the mass of a single atom of carbon-12.</p>
 
@@ -537,9 +537,9 @@ E(r) =
 
 <p>The langevin integrator is:</p>
 
-\[\begin{equation}
+<p>\begin{equation}
 m_i \frac{d \mathbf{v}_i}{d t}=\mathbf{f}_i-\gamma m_i \mathbf{v}_i+\mathbf{R}_i
-\end{equation}\]
+\end{equation}</p>
 
 <p>In OpenMM the langevin integrator can be defined in the class <code class="language-plaintext highlighter-rouge">LangevinIntegrator</code>, where three parameters can be specified in the initialization (temperature, frictionCoeff and stepsize) like:</p>
 
