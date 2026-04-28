@@ -20,49 +20,57 @@ In this note, we do not always distinguish "group" and "representation of group"
 With notation from the article, we define the basis of the lie algebra of $$SO(3)$$ group and their matrix representation as follows:
 
 \begin{equation}
-\begin{aligned}
-\mathbf{e}_1 &=
+\mathbf{e}_1 =
 \begin{bmatrix}
 1 \\
 0 \\
 0
-\end{bmatrix},
-&
-G_1=\mathbf{e}_1^{\times} &=
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+G_1=\mathbf{e}_1^{\times} =
 \begin{bmatrix}
 0 & 0 & 0 \\
 0 & 0 & -1 \\
 0 & 1 & 0
-\end{bmatrix},
-\\[1.2em]
-\mathbf{e}_2 &=
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+\mathbf{e}_2 =
 \begin{bmatrix}
 0 \\
 1 \\
 0
-\end{bmatrix},
-&
-G_2=\mathbf{e}_2^{\times} &=
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+G_2=\mathbf{e}_2^{\times} =
 \begin{bmatrix}
 0 & 0 & 1 \\
 0 & 0 & 0 \\
 -1 & 0 & 0
-\end{bmatrix},
-\\[1.2em]
-\mathbf{e}_3 &=
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+\mathbf{e}_3 =
 \begin{bmatrix}
 0 \\
 0 \\
 1
-\end{bmatrix},
-&
-G_3=\mathbf{e}_3^{\times} &=
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+G_3=\mathbf{e}_3^{\times} =
 \begin{bmatrix}
 0 & -1 & 0 \\
 1 & 0 & 0 \\
 0 & 0 & 0
-\end{bmatrix}.
-\end{aligned}
+\end{bmatrix}
 \end{equation}
 
 Thus we can exponentiate the lie algebra matrix representation to get the matrix representation of $SO(3)$ group, and get back by taking the logarithm of $$SO(3)$$ matrix.
